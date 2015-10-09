@@ -19,6 +19,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+/******* mixins, variables, etc. *******/
+
+$gray-medium-light: #eaeaea;
+
 /******* universal *******/
 
 body {
@@ -98,12 +103,12 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid $gray-medium-light;
   color: #777;
   a {
-    color: #555;
+    color: $gray;
     &:hover {
-      color: #222;
+      color: $gray-darker;
     }
   }
   small {
