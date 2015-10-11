@@ -40,4 +40,8 @@ class User < ActiveRecord::Base
     update_attribute(:remember_digest, nil)
   end
 
+  def first_name
+    name.split(' ')[0]
+  end
+
 end
