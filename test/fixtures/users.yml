@@ -4,3 +4,8 @@ ken:
  name: Ken Hibino
  email: ken.hibino7@gmail.com
  password_digest: <%= User.digest('password') %>
+
+peizhi:
+ name: Peizhi Zheng
+ email: parisa1206@gmail.com
+ password_digest: <%= User.digest('password') %>
