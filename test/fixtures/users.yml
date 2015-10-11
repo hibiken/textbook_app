@@ -9,3 +9,21 @@ peizhi:
  name: Peizhi Zheng
  email: parisa1206@gmail.com
  password_digest: <%= User.digest('password') %>
+
+aaron:
+ name: AAron Schecter
+ email: aaron@gmail.com
+ password_digest: <%= User.digest('password') %>
+
+terry:
+ name: Terry Lin
+ email: terry@gmail.com
+ password_digest: <%= User.digest('password') %>
+
+
+<% 30.times do |n| %>
+user_<%= n %>:
+ name: <%= "User #{n}" %>
+ email: <%= "user-#{n}@example.com" %>
+ password_digest: <%= User.digest('password') %>
+<% end %>
