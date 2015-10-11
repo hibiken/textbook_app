@@ -4,6 +4,7 @@ ken:
  name: Ken Hibino
  email: ken.hibino7@gmail.com
  password_digest: <%= User.digest('password') %>
+ admin: true
 
 peizhi:
  name: Peizhi Zheng
