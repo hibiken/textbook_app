@@ -123,6 +123,13 @@ p {
   }
 }
 
+.navbar-right li.dropdown {
+  .gravatar {
+    position: relative;
+    bottom: 7px;
+  }
+}
+
 
 /******* footer *******/
 
@@ -218,9 +225,25 @@ input {
   }
 }
 
-.signup-button {
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+.button-success {
   @include green_button;
 }
+
+
 
 /******* miscellaneous *******/
 
