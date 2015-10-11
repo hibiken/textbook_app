@@ -16,11 +16,16 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
 
-  test "login with valid information followed by logout" do
-    get login_path
-    post login_path, session: { email: @user.email, password: 'password' }
-    assert_redirected_to @user
+  test "login with valid information with friendly forwarding followed by logout" do
+    get edit_user_path(@user)
+    assert_redirected_to login_url
+    log_in_as @user
+    # Friendly forwarding
+    assert_redirected_to edit_user_path(@user)
     follow_redirect!
+    assert_nil session[:forwarding_url]
+    # Check for the header links
+    get user_path(@user)
     assert_template 'users/show'
     assert_select "a[href=?]", login_path, count: 0
     assert_select "a[href=?]", logout_path
@@ -34,6 +39,11 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", login_path
     assert_select "a[href=?]", logout_path, count: 0
     assert_select "a[href=?]", user_path(@user), count: 0
+    # Log back in (redirect to prfile page)
+    log_in_as @user
+    assert_redirected_to @user
+    follow_redirect!
+    assert_template 'users/show'
   end
 
   test "login with remembering" do
