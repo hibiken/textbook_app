@@ -3,7 +3,7 @@ class TextbooksController < ApplicationController
   before_action :authorized_user, only: [:edit, :update, :destroy]
 
   def index
-    @textbooks = Textbook.includes(:user).order(created_at: :desc)
+    @textbooks = Textbook.includes(:user)
   end
 
   def show
