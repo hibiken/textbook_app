@@ -11,4 +11,16 @@
       <%= link_to "New Listing", new_textbook_path, class: 'button-primary' %>
     <% end %>
   </aside>
+  <div class="col-md-12">
+    <ul>
+      <% @user.textbooks.each do |textbook| %>
+        <li>
+          <div>
+            <h3><%= textbook.title %></h3>
+            <span><%= number_to_currency(textbook.price) %></span>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
