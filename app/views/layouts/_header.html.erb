@@ -4,8 +4,9 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Textbooks",    '#' %></li>
-        <li><%= link_to "Wishlist",    '#' %></li>
         <% if logged_in? %>
+          <li><%= link_to "Wishlist",    '#' %></li>
+          <li><%= link_to "New Listing", new_textbook_path %></li>
           <li class="header-avatar">
             <%= link_to(current_user) do %>
               <span><%= current_user.first_name %></span><%= gravatar_for(current_user, size: 35) %>
