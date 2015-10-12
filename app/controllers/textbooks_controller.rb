@@ -7,6 +7,7 @@ class TextbooksController < ApplicationController
   end
 
   def show
+    @textbook = Textbook.includes(:user).find(params[:id])
   end
 
   def new

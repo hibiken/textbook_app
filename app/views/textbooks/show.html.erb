@@ -1,2 +1,13 @@
-<h1>Textbooks#show</h1>
-<p>Find me in app/views/textbooks/show.html.erb</p>
+<% provide(:title, @textbook.title) %>
+<h1><%= @textbook.title %></h1>
+
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <span class="price pull-right"><%= number_to_currency(@textbook.price) %></span>
+    <p><%= @textbook.description %></p>
+    <div class="textbook-show-seller">
+      <%= gravatar_for @textbook.user, size: 50 %><strong><%= @textbook.user.name %> listed <%= time_ago_in_words(@textbook.created_at) %> ago</strong>
+    </div>
+  </div>
+</div>

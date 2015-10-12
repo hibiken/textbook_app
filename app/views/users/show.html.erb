@@ -17,7 +17,7 @@
       <% @user.textbooks.each do |textbook| %>
         <li class="item">
           <div>
-            <h3 class="title"><%= textbook.title %></h3>
+            <h3 class="title"><%= link_to textbook.title, textbook %></h3>
             <span class="price pull-right"><%= number_to_currency(textbook.price) %></span>
             <p><%= textbook.description %></p>
             <% if current_user?(@user) %>

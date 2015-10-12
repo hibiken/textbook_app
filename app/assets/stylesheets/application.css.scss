@@ -320,10 +320,14 @@ ul.listings {
   .title {
     display: inline-block;
     margin-top: 0;
+    a {
+      color: #333;
+    }
   }
-  .price {
-    @include red_price;
-  }
+}
+
+.price {
+  @include red_price;
 }
 
 /******* miscellaneous *******/
