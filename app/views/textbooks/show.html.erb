@@ -7,7 +7,7 @@
     <span class="price pull-right"><%= number_to_currency(@textbook.price) %></span>
     <p><%= @textbook.description %></p>
     <div class="textbook-show-seller">
-      <%= gravatar_for @textbook.user, size: 50 %><strong><%= @textbook.user.name %> listed <%= time_ago_in_words(@textbook.created_at) %> ago</strong>
+      <%= avatar_for @textbook.user, size: 50 %><strong><%= @textbook.user.name %> listed <%= time_ago_in_words(@textbook.created_at) %> ago</strong>
     </div>
   </div>
 </div>
