@@ -1,2 +1,12 @@
-<h1>Textbooks#edit</h1>
-<p>Find me in app/views/textbooks/edit.html.erb</p>
+<% provide(:title, "Edit Listing") %>
+<h1>Edit Listing</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@textbook) do |f| %>
+      <%= render 'fields', f: f %>
+
+      <%= f.submit "Update Listing", class: 'button-success' %>
+    <% end %>
+  </div>
+</div>

@@ -23,6 +23,17 @@ class TextbooksController < ApplicationController
   end
 
   def edit
+    @textbook = Textbook.find(params[:id])
+  end
+
+  def update
+    @textbook = Textbook.find(params[:id])
+    if @textbook.update_attributes(textbook_params)
+      flash[:success] = "Your listing has been updated"
+      redirect_to @textbook.user
+    else
+      render :edit
+    end
   end
 
   private

@@ -18,6 +18,9 @@
           <div>
             <h3><%= textbook.title %></h3>
             <span><%= number_to_currency(textbook.price) %></span>
+            <% if current_user?(@user) %>
+              <%= link_to "Edit", edit_textbook_path(textbook), class: 'button-primary' %>
+            <% end %>
           </div>
         </li>
       <% end %>
