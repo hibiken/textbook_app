@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012014812) do
+ActiveRecord::Schema.define(version: 20151012171217) do
 
   create_table "textbooks", force: :cascade do |t|
     t.string   "title"
-    t.decimal  "price",      precision: 6, scale: 2
+    t.decimal  "price",       precision: 6, scale: 2
     t.integer  "user_id"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.text     "description"
   end
 
   add_index "textbooks", ["user_id"], name: "index_textbooks_on_user_id"

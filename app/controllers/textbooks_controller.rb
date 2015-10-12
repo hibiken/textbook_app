@@ -46,7 +46,7 @@ class TextbooksController < ApplicationController
   private
 
     def textbook_params
-      params.require(:textbook).permit(:title, :price)
+      params.require(:textbook).permit(:title, :price, :description)
     end
 
     # Confirms the owner of the textbook
