@@ -123,11 +123,21 @@ p {
   }
 }
 
-.navbar-right li.dropdown {
-  .gravatar {
+ul.navbar-nav {
+  > li > a {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.header-avatar {
+  img.gravatar {
+    float: right;
+    margin: 0 0 0 10px;
     position: relative;
     bottom: 7px;
     border-radius: 50%;
+    border: 1px solid #fff;
   }
 }
 

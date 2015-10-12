@@ -3,18 +3,22 @@
     <%= link_to "textbook app", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",    root_path %></li>
-        <li><%= link_to "Help",    help_path %></li>
+        <li><%= link_to "Textbooks",    '#' %></li>
+        <li><%= link_to "Wishlist",    '#' %></li>
         <% if logged_in? %>
-          <li><%= link_to "Users", users_path %></li>
+          <li class="header-avatar">
+            <%= link_to(current_user) do %>
+              <span><%= current_user.first_name %></span><%= gravatar_for(current_user, size: 35) %>
+            <% end %>
+          </li>
           <li class="dropdown">
 
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= current_user.first_name %> <%= gravatar_for(current_user, size: 35) %>
+              <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
               <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li><%= link_to "Users", users_path %></li>
               <li class="divider"></li>
               <li>
                 <%= link_to "Log out", logout_path, method: :delete %>
@@ -23,6 +27,7 @@
           </li>
         <% else %>
           <li><%= link_to "Log in", login_path %></li>
+          <li><%= link_to "Sign up", signup_path %></li>
         <% end %>
       </ul>
     </nav>
