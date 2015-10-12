@@ -1,5 +1,6 @@
 class TextbooksController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :logged_in_user,  only: [:new, :create, :edit, :update, :destroy]
+  before_action :authorized_user, only: [:edit, :update, :destroy]
 
   def index
     @textbooks = Textbook.includes(:user).order(created_at: :desc)
@@ -36,10 +37,22 @@ class TextbooksController < ApplicationController
     end
   end
 
+  def destroy
+    textbook = Textbook.find(params[:id]).destroy
+    flash[:success] = "'#{textbook.title}' has been taken off of your listing"
+    redirect_to textbook.user
+  end
+
   private
 
     def textbook_params
       params.require(:textbook).permit(:title, :price)
+    end
+
+    # Confirms the owner of the textbook
+    def authorized_user
+      @textbook = Textbook.find(params[:id])      
+      redirect_to root_url unless current_user?(@textbook.user)
     end
 
 end
