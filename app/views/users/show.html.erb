@@ -1,5 +1,8 @@
 <% provide(:title, @user.name) %>
 <div class="row">
+  <% if current_user?(@user) %>
+    <%= link_to "New Listing", new_textbook_path, class: 'button-primary pull-right' %>
+  <% end %>
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
@@ -7,17 +10,14 @@
         <%= @user.name %>
       </h1>
     </section>
-    <% if current_user?(@user) %>
-      <%= link_to "New Listing", new_textbook_path, class: 'button-primary' %>
-    <% end %>
   </aside>
   <div class="col-md-12">
-    <ul>
+    <ul class="listings">
       <% @user.textbooks.each do |textbook| %>
-        <li>
+        <li class="item">
           <div>
-            <h3><%= textbook.title %></h3>
-            <span><%= number_to_currency(textbook.price) %></span>
+            <h3 class="title"><%= textbook.title %></h3>
+            <span class="price pull-right"><%= number_to_currency(textbook.price) %></span>
             <p><%= textbook.description %></p>
             <% if current_user?(@user) %>
               <%= link_to "Edit", edit_textbook_path(textbook), class: 'button-primary' %>

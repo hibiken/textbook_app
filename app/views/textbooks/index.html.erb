@@ -3,16 +3,16 @@
 
 <div class="row">
   <div class="col-md-12">
-    <ul>
+    <ul class="listings">
       <% @textbooks.each do |textbook| %>
-        <li>
+        <li class="item">
           <div>
-            <div>
+            <div class="seller-info">
               <%= gravatar_for textbook.user, size: 40 %>
               <span><%= link_to textbook.user.name, textbook.user %></span> | <span><%= time_ago_in_words(textbook.created_at) %> ago</span>
             </div>
-            <h3><%= textbook.title %></h3>
-            <span><%= number_to_currency(textbook.price) %></span>
+            <h3 class="title"><%= textbook.title %></h3>
+            <span class="price pull-right"><%= number_to_currency(textbook.price) %></span>
             <p><%= textbook.description %></p>
           </div>
         </li>

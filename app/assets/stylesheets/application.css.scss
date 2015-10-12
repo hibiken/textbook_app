@@ -67,6 +67,14 @@ $ken-aqua: #7FDBFF;
   }
 }
 
+@mixin red_price {
+  font-size: 17px;
+  padding: 8px 12px;
+  color: tomato;
+  border: 2px solid;
+  border-radius: 18px
+}
+
 
 
 /******* universal *******/
@@ -155,7 +163,6 @@ ul.navbar-nav {
     margin: 0 0 0 10px;
     position: relative;
     bottom: 7px;
-    border-radius: 50%;
     border: 1px solid #fff;
   }
 }
@@ -216,8 +223,9 @@ aside {
 }
 
 .gravatar {
-  float: left;
+  //float: left;
   margin-right: 10px;
+  border-radius: 50%;
 }
 .gravatar_edit {
   margin-top: 15px;
@@ -290,6 +298,26 @@ input {
   }
 }
 
+/******* Users show & index *******/
+ul.listings {
+  list-style: none;
+  .seller-info {
+    margin-bottom: 10px;
+    margin-left: -25px;
+  }
+  .item {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid $gray-lighter;
+  }
+  .title {
+    display: inline-block;
+    margin-top: 0;
+  }
+  .price {
+    @include red_price;
+  }
+}
 
 /******* miscellaneous *******/
 
