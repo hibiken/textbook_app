@@ -199,6 +199,7 @@ footer {
 aside {
   section.user_info {
     margin-top: 20px;
+    position: relative;
   }
   section {
     padding: 10px 0;
@@ -299,6 +300,12 @@ input {
 }
 
 /******* Users show & index *******/
+.new-button {
+  position: absolute;
+  right: 0;
+  top: 2em;
+}
+
 ul.listings {
   list-style: none;
   .seller-info {

@@ -1,17 +1,18 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <% if current_user?(@user) %>
-    <%= link_to "New Listing", new_textbook_path, class: 'button-primary pull-right' %>
-  <% end %>
-  <aside class="col-md-4">
+
+  <aside class="col-md-10 col-md-offset-1">
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
     </section>
+    <% if current_user?(@user) %>
+      <%= link_to "New Listing", new_textbook_path, class: 'button-primary new-button' %>
+    <% end %>
   </aside>
-  <div class="col-md-12">
+  <div class="col-md-10 col-md-offset-1">
     <ul class="listings">
       <% @user.textbooks.each do |textbook| %>
         <li class="item">
