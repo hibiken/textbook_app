@@ -47,8 +47,27 @@ $ken-aqua: #7FDBFF;
   &:hover {
     background-color: $ken-lime;
     color: #fff;
+    text-decoration: none;
   }
 }
+
+@mixin blue_button {
+  border: 2px solid $ken-teal;
+  color: $ken-teal;
+  font-weight: bold;
+  background-color: #fff;
+  padding: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 300ms;
+  &:hover {
+    background-color: $ken-teal;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+
 
 /******* universal *******/
 
@@ -252,6 +271,10 @@ input {
 
 .button-success {
   @include green_button;
+}
+
+.button-primary {
+  @include blue_button;
 }
 
 
