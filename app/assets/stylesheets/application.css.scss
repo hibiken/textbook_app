@@ -27,6 +27,9 @@ $ken-teal: #39CCCC;
 $ken-lime: #01FF70;
 $ken-green: #2ECC40;
 $ken-aqua: #7FDBFF;
+$ken-blue: #0074D9;
+$ken-navy: #001f3f;
+$ken-maroon: #85144b;
 
 
 @mixin box_sizing {
@@ -154,6 +157,13 @@ ul.navbar-nav {
   > li > a {
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid $ken-navy;
+    transition: all 200ms;
+    &:hover,
+    &:focus {
+      border-bottom: 3px solid #fff;
+    }
   }
 }
 
@@ -167,6 +177,17 @@ ul.navbar-nav {
   }
 }
 
+header.navbar-inverse {
+  background-color: $ken-navy;
+  .navbar-nav > li > a {
+    color: #efefef;
+  }
+}
+
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: $ken-navy;
+}
 
 /******* footer *******/
 
