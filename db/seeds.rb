@@ -3,7 +3,7 @@
 #
 
 
-User.create!(name:   "Example  User",
+User.create!(name:   "Michael Hartl",
             email:  "example@railstutorial.org",
             password:               "foobar",
             password_confirmation:  "foobar",
@@ -11,7 +11,7 @@ User.create!(name:   "Example  User",
             activated: true,
             activated_at: Time.zone.now)
 
-99.times do |n|
+40.times do |n|
   name = Faker::Name.name
   email = "example-#{n}@railstutorial.org"
   password = 'password'
@@ -22,3 +22,14 @@ User.create!(name:   "Example  User",
                activated: true,
                activated_at: Time.zone.now)  
 end
+
+
+# Create Subjects
+subjects = ['Accounting', 'Biochemistry', 'Biology', 'Chemistry', 'Computer Science', 'Economics', 'English', 'Finance', 
+            'Histroy', 'Marketing', 'Nutrition', 'Physics', 'Psychology', 'Spanish', 'Others']
+
+subjects.each do |subject|
+  Subject.create!(name: subject)
+end
+
+
