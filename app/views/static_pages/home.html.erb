@@ -7,6 +7,8 @@
   
     <%= form_tag(textbooks_path, method: :get, id: 'main-searchbar') do %>
       <%= text_field_tag :search, params[:search], placeholder: 'Search Textbooks ...', autofocus: true %>
-      <%= submit_tag "Search", name: nil %>
+      <%= button_tag(type: "submit", name: nil, class: 'btn') do %>
+          <span class="icon-search"></span>
+      <% end %>
     <% end %>
 </div>

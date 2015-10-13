@@ -3,7 +3,9 @@
     <%= link_to "textbook app", root_path, id: "logo" %>
     <%= form_tag(textbooks_path, method: :get, class: 'navbar-form input-group') do %>
       <%= text_field_tag :search, params[:search], placeholder: 'Search Textbooks' %>
-      <%= submit_tag "Search", name: nil %>
+      <%= button_tag(type: "submit", name: nil, class: 'btn') do %>
+          <span class="icon-search"></span>
+      <% end %>
     <% end %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
