@@ -6,5 +6,8 @@
 <%= f.label :price %>
 <%= f.number_field :price, step: 0.01, class: 'form-control' %>
 
+<%= f.label :subject_id, "Subject" %>
+<%= f.collection_select :subject_id, Subject.all, :id, :name, prompt: true %>
+
 <%= f.label :description %>
 <%= f.text_area :description, cols: 40, rows: 10, class: 'form-control', placeholder: 'Example: Required for English 101, good condition...' %>
