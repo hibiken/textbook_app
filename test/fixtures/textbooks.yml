@@ -3,14 +3,20 @@
 ruby_on_rails_tutorial:
  title: Ruby on Rails Tutorial 
  price: 45.00
+ description: This is really helpful
  user: ken
+ subject: computer_science
 
 c_programming:
  title: C programming language
  price: 35.99
+ description: This is really helpful
  user: ken
+ subject: computer_science
 
 supply_chain_management:
  title: Supply Chain Management 
  price: 110.99
+ description: This is really helpful
  user: peizhi
+ subject: business

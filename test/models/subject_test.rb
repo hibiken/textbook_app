@@ -1,7 +1,17 @@
 require 'test_helper'
 
 class SubjectTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  
+  def setup
+    @subject = Subject.new(name: "Computer Science")
+  end
+
+  test "should be valid" do
+    assert @subject.valid?
+  end
+
+  test "name should be present" do
+    @subject.name = '  '
+    assert_not @subject.valid?
+  end
 end

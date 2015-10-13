@@ -3,7 +3,7 @@ require 'test_helper'
 class TextbookTest < ActiveSupport::TestCase
   
   def setup
-    @textbook = Textbook.new(title: "Ruby on Rails Tutorial", price: 35.00)
+    @textbook = Textbook.new(title: "Ruby on Rails Tutorial", price: 35.00, subject_id: 1, description: "This is a good read")
   end
 
   test "should be valid" do
