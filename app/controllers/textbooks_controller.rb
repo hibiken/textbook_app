@@ -4,7 +4,7 @@ class TextbooksController < ApplicationController
 
   def index
     if params[:search]
-      @textbooks = Textbook.search(params[:search])
+      @textbooks = Textbook.includes(:user).search(params[:search])
     else
       @textbooks = Textbook.includes(:user)
     end
