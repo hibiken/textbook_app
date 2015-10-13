@@ -1,7 +1,7 @@
 <% provide(:title, @user.name) %>
 <div class="row">
 
-  <aside class="col-md-10">
+  <aside class="col-md-12">
     <section class="user_info">
       <h1>
         <%= avatar_for @user %>
@@ -12,7 +12,7 @@
       <%= link_to "New Listing", new_textbook_path, class: 'button-primary new-button' %>
     <% end %>
   </aside>
-  <div class="col-md-10 col-md-offset-1">
+  <div class="col-md-12">
     <ul class="listings">
       <% @user.textbooks.each do |textbook| %>
         <li class="item">
