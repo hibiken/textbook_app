@@ -1,11 +1,14 @@
 <div class="center jumbotron">
-  <h1>Welcome to the Textbook App</h1>
+  <h1>Find, buy, and sell Textbooks you need for next semester</h1>
 
   <h2>
     This is the home page for the textbook application for college students to sell and buy textbooks.
   </h2>
-
-  <%= link_to "Sign up now!", signup_path, class: 'btn btn-lg btn-primary' %>
+  
+    <%= form_tag(textbooks_path, method: :get, id: 'main-searchbar') do %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Search Textbooks ...' %>
+      <%= submit_tag "Search", name: nil %>
+    <% end %>
 </div>
 
 <%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org' %>
