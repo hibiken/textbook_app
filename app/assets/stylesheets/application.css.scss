@@ -261,7 +261,8 @@ form.navbar-form {
     height: 26px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    padding: 0 8px
+    padding: 0 8px;
+    outline: none;
   }
 }
 
@@ -402,6 +403,7 @@ input {
     outline: none;
     border-top-left-radius:    7px;
     border-bottom-left-radius: 7px;
+    color: $ken-navy;
   }
   button{
     height: 50px;
@@ -413,12 +415,15 @@ input {
     padding: 6px 18px;
     font-size: 1.5em;
     outline: none;
+    //background-color: $ken-aqua;
+    color: $ken-navy;
   }
-  input[type="submit"] {
-    width: auto;
-    border-top-right-radius:    7px;
-    border-bottom-right-radius: 7px;
-  }
+}
+
+h1.homepage-headline {
+  font-weight: normal;
+  font-size: 56px;
+  color: $ken-navy;
 }
 
 
