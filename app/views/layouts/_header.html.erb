@@ -1,6 +1,10 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <%= link_to "textbook app", root_path, id: "logo" %>
+    <%= form_tag(textbooks_path, method: :get, class: 'navbar-form') do %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Search Textbooks' %>
+      <%= submit_tag "Search", name: nil %>
+    <% end %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Textbooks",    textbooks_path %></li>

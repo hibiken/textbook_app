@@ -3,7 +3,11 @@ class TextbooksController < ApplicationController
   before_action :authorized_user, only: [:edit, :update, :destroy]
 
   def index
-    @textbooks = Textbook.includes(:user)
+    if params[:search]
+      @textbooks = Textbook.search(params[:search])
+    else
+      @textbooks = Textbook.includes(:user)
+    end
   end
 
   def show

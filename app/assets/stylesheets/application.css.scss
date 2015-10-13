@@ -191,6 +191,19 @@ header.navbar-inverse {
   background-color: $ken-theme;
 }
 
+form.navbar-form {
+  display: inline-flex;
+  margin: 0;
+  float: left;
+  position: relative;
+  top: 11px;
+  left: 1.2em;
+  width: 300px;
+  input[type="submit"] {
+    width: auto;
+  }
+}
+
 /******* footer *******/
 
 footer {

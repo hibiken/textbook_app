@@ -7,4 +7,7 @@ class Textbook < ActiveRecord::Base
   validates :subject_id, presence: true
 
   default_scope -> { order(created_at: :desc) }
+
+  # Query all textbook with a given string included in either title or description.
+  scope :search, ->(search) { where("title LIKE :search OR description LIKE :search", search: "%#{search}%") }
 end
