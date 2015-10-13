@@ -31,6 +31,8 @@ $ken-blue: #0074D9;
 $ken-navy: #001f3f;
 $ken-maroon: #85144b;
 
+$ken-theme: $ken-navy;
+
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -158,7 +160,7 @@ ul.navbar-nav {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     padding-bottom: 12px;
-    border-bottom: 3px solid $ken-navy;
+    border-bottom: 3px solid $ken-theme;
     transition: all 200ms;
     &:hover,
     &:focus {
@@ -178,7 +180,7 @@ ul.navbar-nav {
 }
 
 header.navbar-inverse {
-  background-color: $ken-navy;
+  background-color: $ken-theme;
   .navbar-nav > li > a {
     color: #efefef;
   }
@@ -186,7 +188,7 @@ header.navbar-inverse {
 
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-  background-color: $ken-navy;
+  background-color: $ken-theme;
 }
 
 /******* footer *******/
