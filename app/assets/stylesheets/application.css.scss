@@ -31,7 +31,7 @@ $ken-blue: #0074D9;
 $ken-navy: #001f3f;
 $ken-maroon: #85144b;
 
-$ken-theme: $ken-navy;
+$ken-theme: $ken-blue;
 
 
 @mixin box_sizing {
@@ -86,6 +86,10 @@ $ken-theme: $ken-navy;
 
 body {
   padding-top: 60px;
+  &.static-page-layout {
+    //background-color: $ken-theme;
+    //padding-top: 0;
+  }
 }
 
 section {
@@ -181,6 +185,7 @@ ul.navbar-nav {
 
 header.navbar-inverse {
   background-color: $ken-theme;
+  border-color: $ken-theme;
   .navbar-nav > li > a {
     color: #efefef;
   }

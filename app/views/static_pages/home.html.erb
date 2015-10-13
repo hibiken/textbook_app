@@ -6,9 +6,7 @@
   </h2>
   
     <%= form_tag(textbooks_path, method: :get, id: 'main-searchbar') do %>
-      <%= text_field_tag :search, params[:search], placeholder: 'Search Textbooks ...' %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Search Textbooks ...', autofocus: true %>
       <%= submit_tag "Search", name: nil %>
     <% end %>
 </div>
-
-<%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org' %>
