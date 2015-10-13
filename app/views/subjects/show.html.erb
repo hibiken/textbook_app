@@ -1,11 +1,11 @@
-<% provide(:title, "All textbooks") %>
-<h1>Textbooks</h1>
+<% provide(:title, @subject.name) %>
+<h1><%= @subject.name %></h1>
 
 <div class="row">
   <div class="col-md-10">
     <ul class="listings">
       <% @textbooks.each do |textbook| %>
-        <%= render 'textbook', object: textbook %>
+        <%= render 'textbooks/textbook', object: textbook %>
       <% end %>
     </ul>
   </div>
