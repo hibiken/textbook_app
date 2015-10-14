@@ -490,6 +490,11 @@ ul.listings {
   @include red_price;
 }
 
+/******* Users edit *******/
+input#user_avatar {
+  border: none;
+}
+
 /******* Textbooks index *******/
 .search-term {
   font-style: italic;

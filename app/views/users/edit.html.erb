@@ -6,9 +6,11 @@
 
     <%= form_for(@user, html: { multipart: true }) do |f| %>
       <%= render 'fields', f: f %>
-      <%= f.submit "Save change", class: 'button-success' %>
 
+      <%= f.label :avatar, "Upload image for profile picture" %>
       <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
+
+      <%= f.submit "Save change", class: 'button-success' %>
     <% end %>
 
   </div>
