@@ -4,7 +4,7 @@
     <%= form_tag(textbooks_path, method: :get, class: 'navbar-form input-group') do %>
       <%= text_field_tag :search, params[:search], placeholder: 'Search Textbooks' %>
       <%= button_tag(type: "submit", name: nil, class: 'btn') do %>
-          <span class="icon-search"></span>
+          <span class="glyphicon glyphicon-search"></span>
       <% end %>
     <% end %>
     <nav>
