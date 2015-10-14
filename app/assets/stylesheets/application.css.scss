@@ -178,7 +178,7 @@ h1 {
 
 h2 {
   font-size: 1.2em;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
@@ -488,6 +488,12 @@ ul.listings {
 
 .price {
   @include red_price;
+}
+
+/******* Textbooks index *******/
+.search-term {
+  font-style: italic;
+  font-weight: bold;
 }
 
 /******* miscellaneous *******/
