@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessor :remember_token,  :activation_token, :reset_token
 
   has_many :textbooks, dependent: :destroy
+  has_and_belongs_to_many :courses
 
   before_save   :downcase_email
   before_create :create_activation_digest
