@@ -34,6 +34,8 @@ $ken-maroon: #85144b;
 
 $ken-theme: $ken-blue;
 
+$default-border-radius: 10px;
+
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -155,6 +157,7 @@ textarea {
 .center h1 {
   margin-bottom: 10px;
 }
+
 
 
 /******* typography *******/
@@ -499,6 +502,25 @@ input#user_avatar {
 .search-term {
   font-style: italic;
   font-weight: bold;
+}
+
+/******* wishlist *******/
+
+.wishlist-item {
+  .course-name {
+    display: inline-block;
+    background-color: $ken-teal;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 18px;
+  }
+  .avatar {
+    transition: all 200ms;
+    border: 2px solid #fff;
+    &:hover {
+      border: 2px solid $ken-teal;
+    }
+  }
 }
 
 /******* miscellaneous *******/

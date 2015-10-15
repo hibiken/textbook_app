@@ -1,28 +1,35 @@
 <% provide(:title, "Wish List") %>
-<h1>Wish List</h1>
 
-<%= link_to "Request for textbook", new_course_path, class: 'button-primary new-button' %> 
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h1>My Wish List</h1>
+    <h2>List the courses you are taking next semester</h2>
 
-<% if @courses.any? %>
-  <ul class="listings">
-    <% @courses.each do |course| %>
-      <li class="item">
-        <div>
-          <%= course.name %>
-          <span><%= link_to "Delete", course_path(course), method: :delete, class: 'button-success' %></span>
-          <% if course.textbooks.any? %>
-            <h4><%= pluralize(course.textbooks.count, 'seller') %></h4>
-            <ul>
-              <% course.textbooks.each do |textbook| %>
-                <%= avatar_for textbook.user, size: 35 %>
-                <%= link_to "View details", textbook, class: 'button-primary' %>
+    <%= link_to "Request for textbook", new_course_path, class: 'button-primary new-button' %> 
+
+    <% if @courses.any? %>
+      <ul class="listings">
+        <% @courses.each do |course| %>
+          <li class="item wishlist-item">
+            <div>
+              <h3 class="course-name"><%= course.name %></h3>
+              <span><%= link_to "Take this course off the list", course_path(course), method: :delete, class: 'pull-right' %></span>
+              <% if course.textbooks.any? %>
+                <div>
+                  <h4><%= pluralize(course.textbooks.count, 'seller') %></h4>
+                  <ul>
+                    <% course.textbooks.each do |textbook| %>
+                      <%= link_to((avatar_for textbook.user, size: 40), textbook) %>
+                    <% end %>
+                  </ul>
+                </div>
               <% end %>
-            </ul>
-          <% end %>
-        </div>
-      </li>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No courses listed for next semester</p>
     <% end %>
-  </ul>
-<% else %>
-  <p>No courses listed for next semester</p>
-<% end %>
+  </div>
+</div>
