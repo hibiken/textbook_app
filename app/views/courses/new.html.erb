@@ -1,0 +1,14 @@
+<% provide(:title, "Post Course") %>
+<h1>Request for textbook</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_tag(courses_path) do %>
+      
+      <%= label_tag :course_id, "Course name" %>
+      <%= collection_select :user, :course_id, Course.all, :id, :name, prompt: true %>
+
+      <%= submit_tag "Request textbook", class: 'button-success' %>
+    <% end %>
+  </div>
+</div>

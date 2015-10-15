@@ -1,0 +1,19 @@
+<% provide(:title, "Wish List") %>
+<h1>Wish List</h1>
+
+<%= link_to "Request for textbook", new_course_path, class: 'button-primary new-button' %> 
+
+<% if @courses.any? %>
+  <ul class="listings">
+    <% @courses.each do |course| %>
+      <li class="item">
+        <div>
+          <%= course.name %>
+          <span><%= link_to "Delete", course_path(course), method: :delete, class: 'button-success' %></span>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No courses listed for next semester</p>
+<% end %>
