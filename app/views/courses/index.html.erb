@@ -10,6 +10,15 @@
         <div>
           <%= course.name %>
           <span><%= link_to "Delete", course_path(course), method: :delete, class: 'button-success' %></span>
+          <% if course.textbooks.any? %>
+            <h4><%= pluralize(course.textbooks.count, 'seller') %></h4>
+            <ul>
+              <% course.textbooks.each do |textbook| %>
+                <%= avatar_for textbook.user, size: 35 %>
+                <%= link_to "View details", textbook, class: 'button-primary' %>
+              <% end %>
+            </ul>
+          <% end %>
         </div>
       </li>
     <% end %>
