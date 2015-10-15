@@ -25,11 +25,60 @@ end
 
 
 # Create Subjects
-subjects = ['Accounting', 'Biochemistry', 'Biology', 'Chemistry', 'Computer Science', 'Economics', 'English', 'Finance', 
-            'Histroy', 'Marketing', 'Nutrition', 'Physics', 'Psychology', 'Spanish', 'Others']
+subjects = ['Accounting', 'Biochemistry', 'Biology', 'Business', 'Chemistry', 'Computer Science', 'Economics', 'English', 'Finance', 
+            'Histroy', 'Marketing', 'Math', 'Nutrition', 'Physics', 'Psychology', 'Spanish', 'Others']
 
 subjects.each do |subject|
   Subject.create!(name: subject)
 end
+
+# Create Courses
+courses = ['ACC 201', 'ACC 202', 'ACC 301', 'ACC 302', 'BIO 101', 'BIO 102', 'BIO 120', 'BIO 202', 'BIO 203', 
+           'CSC 121', 'CSC 221', 'CSC 217', 'CSC 223', 'CSC 319', 'CSC 321', 'FIN 350', 'FIN355', 'MAT 101',
+           'MAT 221', 'MAT 222', 'MAT 225', 'ENG 101']
+
+courses.each do |course|
+  Course.create!(name: course)
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
