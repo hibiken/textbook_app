@@ -12,7 +12,7 @@ class CoursesController < ApplicationController
   end
 
   def create
-    course = Course.find(params[:user][:course_id])
+    course = Course.find(params[:course_id])
     if current_user.courses << course
       flash[:success] = "You have requested a textbook for #{course.name}"
       redirect_to wishlist_url

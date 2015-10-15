@@ -1,7 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+ENG101:
+ name: ENG 101
 
-two:
-  name: MyString
+CSC221:
+ name: CSC 221
+
+ACC201:
+ name: ACC 201
