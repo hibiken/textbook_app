@@ -9,5 +9,8 @@
 <%= f.label :subject_id, "Subject" %>
 <%= f.collection_select :subject_id, Subject.all, :id, :name, prompt: true %>
 
+<%= f.label :course_id, "Course name" %>
+<%= f.collection_select :course_id, Course.all, :id, :name, prompt: true %>
+
 <%= f.label :description %>
 <%= f.text_area :description, cols: 40, rows: 10, class: 'form-control', placeholder: 'Example: Required for English 101, good condition...' %>

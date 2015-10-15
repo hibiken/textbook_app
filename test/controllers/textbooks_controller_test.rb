@@ -4,6 +4,8 @@ class TextbooksControllerTest < ActionController::TestCase
   
   def setup
     @user = users(:ken)
+    @subject = subjects(:computer_science)
+    @course = courses(:CSC221)
   end
 
   test "should create a new listing" do
@@ -11,7 +13,7 @@ class TextbooksControllerTest < ActionController::TestCase
     get :new
     assert_template 'textbooks/new'
     assert_difference 'Textbook.count', 1 do
-      post :create, textbook: { title: "Intro to CS", price: 50.00, subject_id: 1, description: "This is really helpful" }
+      post :create, textbook: { title: "Intro to CS", price: 50.00, subject_id: @subject.id, course_id: @course.id, description: "This is really helpful" }
     end
     assert_redirected_to @user
     assert_not flash.empty?
