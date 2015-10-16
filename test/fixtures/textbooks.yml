@@ -6,6 +6,7 @@ ruby_on_rails_tutorial:
  description: This is really helpful
  user: ken
  subject: computer_science
+ course: CSC221
 
 c_programming:
  title: C programming language
@@ -13,6 +14,7 @@ c_programming:
  description: This is really helpful
  user: ken
  subject: computer_science
+ course: CSC221
 
 supply_chain_management:
  title: Supply Chain Management 
@@ -20,3 +22,4 @@ supply_chain_management:
  description: This is really helpful
  user: peizhi
  subject: business
+ course: CSC221

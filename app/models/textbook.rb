@@ -12,4 +12,13 @@ class Textbook < ActiveRecord::Base
 
   # Query all textbook with a given string included in either title or description.
   scope :search, ->(search) { where("title LIKE :search OR description LIKE :search", search: "%#{search}%") }
+
+
+  def course_name
+    course.name 
+  end
+
+  def subject_name
+    subject.name
+  end
 end

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post    'login'   => 'sessions#create'
   delete  'logout'  => 'sessions#destroy'
   get     'wishlist'=> 'courses#index'
+  post    'comment' => 'comments#create'
 
   resources :users
   resources :account_activations, only: [:edit]
