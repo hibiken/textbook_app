@@ -9,7 +9,7 @@
       </h1>
     </section>
     <% if current_user?(@user) %>
-      <%= link_to "New Listing", new_textbook_path, class: 'button-primary new-button' %>
+      <%= link_to "Edit Profile", edit_user_path(current_user), class: 'button-primary button-top-right' %>
     <% end %>
   </aside>
   <div class="col-md-12">
