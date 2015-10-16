@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :textbooks, dependent: :destroy
   has_and_belongs_to_many :courses
+  has_many :comments, dependent: :destroy
 
   before_save   :downcase_email
   before_create :create_activation_digest
