@@ -510,6 +510,7 @@ ul.listings {
     border-bottom: 1px solid $gray-lighter;
     padding: 20px;
     border-radius: 5px;
+    position: relative;
     &:hover {
       background-color: $gray-lighter;
     }
@@ -525,6 +526,9 @@ ul.listings {
 
 .price {
   @include red_price;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 /******* Users edit *******/

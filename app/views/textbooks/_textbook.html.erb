@@ -5,7 +5,7 @@
       <span><%= link_to object.user.name, object.user %></span> | <span><%= time_ago_in_words(object.created_at) %> ago</span>
     </div>
     <h3 class="title"><%= link_to object.title, object %></h3>
-    <span class="price pull-right"><%= number_to_currency(object.price) %></span>
+    <span class="price"><%= number_to_currency(object.price) %></span>
     <p><%= object.description %></p>
   </div>
 </li>
