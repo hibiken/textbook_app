@@ -5,7 +5,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Textbooks",    textbooks_path %></li>
         <% if logged_in? %>
-          <li><%= link_to "Wishlist",    '#' %></li>
+          <li><%= link_to "Wishlist",    wishlist_path %></li>
           <li><%= link_to "Add Listing", new_textbook_path %></li>
           <li class="header-avatar">
             <%= link_to(current_user) do %>
