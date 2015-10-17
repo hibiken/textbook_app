@@ -9,7 +9,7 @@
       </h1>
     </section>
     <% if current_user?(@user) %>
-      <%= link_to "Edit Profile", edit_user_path(current_user), class: 'button-primary button-top-right' %>
+      <%= link_to "Edit Profile", edit_user_path(current_user), class: 'button-primary button-top-right btn' %>
     <% end %>
   </aside>
   <div class="col-md-12">
@@ -21,8 +21,8 @@
             <span class="price pull-right"><%= number_to_currency(textbook.price) %></span>
             <p><%= textbook.description %></p>
             <% if current_user?(@user) %>
-              <%= link_to "Edit", edit_textbook_path(textbook), class: 'button-primary' %>
-              <%= link_to "Take this off", textbook_path(textbook), method: :delete, class: 'button-success' %>
+              <%= link_to "Edit", edit_textbook_path(textbook), class: 'button-primary btn edit-button' %>
+              <%= link_to "Take this off", textbook_path(textbook), method: :delete, class: 'button-success btn delete-button' %>
             <% end %>
           </div>
         </li>

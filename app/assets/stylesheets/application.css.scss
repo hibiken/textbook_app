@@ -82,7 +82,8 @@ $default-border-radius: 10px;
   padding: 8px 12px;
   color: tomato;
   border: 2px solid;
-  border-radius: 18px
+  border-radius: 18px;
+  background-color: #fff;
 }
 
 /******* icons *******/
@@ -306,6 +307,7 @@ footer {
 
 .sidebar {
   border-right: 1px solid #efefef;
+  padding-right: 0;
   .nav-sidebar {
     li > a {
       color: $ken-navy;
@@ -357,6 +359,32 @@ aside {
 
 /******* form *******/
 
+.form-panel {
+  .panel-heading {
+    background-color: $ken-teal;
+    color: #fff;
+  }
+  h1 {
+    margin: 0;
+    font-size: 2.3em;
+    letter-spacing: 0.5px;
+  }
+  label {
+    color: #555;
+    text-transform: lowercase;
+    font-size: 18px;
+  }
+  input, 
+  textarea,
+  select {
+    &:focus {
+      box-shadow: none;
+      outline: none;
+      border: 1.5px solid $ken-teal;
+    }
+  }
+}
+
 input, 
 textarea,
 select,
@@ -364,6 +392,7 @@ select,
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
+  outline: none;
   @include box_sizing;
 }
 
@@ -407,6 +436,8 @@ input {
 .button-primary {
   @include blue_button;
 }
+
+
 
 /******* Home page *******/
 
@@ -464,8 +495,9 @@ h1.homepage-headline {
 /******* Users show & index *******/
 .button-top-right {
   position: absolute;
-  right: 0;
+  right: 2em;
   top: 2em;
+  border-radius: 18px;
 }
 
 ul.listings {
@@ -473,12 +505,14 @@ ul.listings {
   color: $ken-navy;
   .seller-info {
     margin-bottom: 10px;
-    margin-left: -25px;
   }
   .item {
-    padding-top: 20px;
-    padding-bottom: 30px;
     border-bottom: 1px solid $gray-lighter;
+    padding: 20px;
+    border-radius: 5px;
+    &:hover {
+      background-color: $gray-lighter;
+    }
   }
   .title {
     display: inline-block;

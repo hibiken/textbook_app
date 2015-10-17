@@ -1,12 +1,19 @@
 <% provide(:title, "New Listing") %>
-<h1>New Listing</h1>
+
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@textbook) do |f| %>
-      <%= render 'fields', f: f %>
+    <div class="panel panel-default form-panel">
+      <div class="panel-heading">
+        <h1>New Listing</h1>
+      </div>
+      <div class="panel-body">
+        <%= form_for(@textbook) do |f| %>
+          <%= render 'fields', f: f %>
 
-      <%= f.submit "New Listing", class: 'button-success' %>
-    <% end %>
+          <%= f.submit "Post Listing", class: 'button-success btn' %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

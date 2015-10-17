@@ -15,7 +15,7 @@
     <div class="col-md-2 sidebar">
       <ul class="nav nav-sidebar">
         <% Subject.all.each do |subject| %>
-          <li><%= link_to subject.name, subject %></li>
+          <li><%= link_to subject.name.titleize, subject %></li>
         <% end %>
       </ul>
     </div>
