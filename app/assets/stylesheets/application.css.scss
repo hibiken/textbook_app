@@ -22,6 +22,7 @@
 
 /******* mixins, variables, etc. *******/
 
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700italic,700,300);
 
 $gray-medium-light: #eaeaea;
 $ken-teal: #39CCCC;
@@ -136,6 +137,7 @@ $default-border-radius: 10px;
 /******* universal *******/
 
 body {
+  font-family: 'Lato', sans-serif;
   padding-top: 60px;
   &.static-page-layout {
     //background-color: $ken-theme;
