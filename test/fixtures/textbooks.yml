@@ -23,3 +23,12 @@ supply_chain_management:
  user: peizhi
  subject: business
  course: CSC221
+
+sold_textbook:
+ title: Intro to Microeconomics
+ price: 100.00
+ description: Must read if you are Econ major
+ user: peizhi
+ subject: business
+ course: CSC221
+ sold: true
