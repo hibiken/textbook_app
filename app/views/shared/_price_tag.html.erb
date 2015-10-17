@@ -1,0 +1,5 @@
+<% if object.sold? %>
+  <span class="price">Sold <span class="glyphicon glyphicon-ok"></span></span>
+<% else %>
+  <span class="price"><%= number_to_currency(object.price) %></span>
+<% end %>

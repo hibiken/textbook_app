@@ -18,11 +18,12 @@
         <li class="item">
           <div>
             <h3 class="title"><%= link_to textbook.title, textbook %></h3>
-            <span class="price"><%= number_to_currency(textbook.price) %></span>
+            <%= render 'shared/price_tag', object: textbook %>
             <p><%= textbook.description %></p>
             <% if current_user?(@user) %>
-              <%= link_to "Edit", edit_textbook_path(textbook), class: 'button-primary btn edit-button' %>
-              <%= link_to "Take this off", textbook_path(textbook), method: :delete, class: 'button-success btn delete-button' %>
+              <%= link_to "Edit", edit_textbook_path(textbook), class: 'button-primary btn edit-button' unless textbook.sold? %>
+              <%= link_to "Take this off", textbook_path(textbook), method: :delete, class: 'button-primary btn delete-button' %>
+              <%= link_to "Mark as sold", sold_textbook_path(textbook), method: :post, class: 'button-primary btn' unless textbook.sold? %>
             <% end %>
           </div>
         </li>

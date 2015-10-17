@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016015047) do
+ActiveRecord::Schema.define(version: 20151017130124) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "message"
@@ -48,11 +48,12 @@ ActiveRecord::Schema.define(version: 20151016015047) do
     t.string   "title"
     t.decimal  "price",       precision: 6, scale: 2
     t.integer  "user_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
     t.text     "description"
     t.integer  "subject_id"
     t.integer  "course_id"
+    t.boolean  "sold",                                default: false
   end
 
   add_index "textbooks", ["course_id"], name: "index_textbooks_on_course_id"

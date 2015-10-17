@@ -1,12 +1,12 @@
 class TextbooksController < ApplicationController
-  before_action :logged_in_user,  only: [:new, :create, :edit, :update, :destroy]
-  before_action :authorized_user, only: [:edit, :update, :destroy]
+  before_action :logged_in_user,  only: [:new, :create, :edit, :update, :destroy, :sold]
+  before_action :authorized_user, only: [:edit, :update, :destroy, :sold]
 
   def index
     if params[:search]
       @textbooks = Textbook.includes(:user).search(params[:search])
     else
-      @textbooks = Textbook.includes(:user)
+      @textbooks = Textbook.includes(:user).where(sold: false)
     end
   end
 
@@ -29,11 +29,9 @@ class TextbooksController < ApplicationController
   end
 
   def edit
-    @textbook = Textbook.find(params[:id])
   end
 
   def update
-    @textbook = Textbook.find(params[:id])
     if @textbook.update_attributes(textbook_params)
       flash[:success] = "Your listing has been updated"
       redirect_to @textbook.user
@@ -43,9 +41,19 @@ class TextbooksController < ApplicationController
   end
 
   def destroy
-    textbook = Textbook.find(params[:id]).destroy
-    flash[:success] = "'#{textbook.title}' has been taken off of your listing"
-    redirect_to textbook.user
+    @textbook.destroy
+    flash[:success] = "'#{@textbook.title}' has been taken off of your listing"
+    redirect_to @textbook.user
+  end
+
+  def sold
+    if @textbook.update_attribute(:sold, true)
+      flash[:success] = "Marked #{@textbook.title} as sold!"
+      redirect_to @textbook.user
+    else
+      flash[:danger] = "Something went wrong. Please try agian"
+      redirect_to @textbook.user
+    end
   end
 
   private
@@ -61,3 +69,20 @@ class TextbooksController < ApplicationController
     end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
