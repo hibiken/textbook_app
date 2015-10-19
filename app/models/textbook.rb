@@ -10,8 +10,12 @@ class Textbook < ActiveRecord::Base
 
   default_scope -> { order(created_at: :desc) }
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   # Query all textbook with a given string included in either title or description.
   scope :search, ->(search) { where("title LIKE :search OR description LIKE :search", search: "%#{search}%") }
+
 
 
   def course_name

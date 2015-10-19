@@ -11,7 +11,7 @@ class TextbooksController < ApplicationController
   end
 
   def show
-    @textbook = Textbook.includes(:user, :comments).find(params[:id])
+    @textbook = Textbook.includes(:user, :comments).friendly.find(params[:id])
   end
 
   def new
@@ -64,7 +64,7 @@ class TextbooksController < ApplicationController
 
     # Confirms the owner of the textbook
     def authorized_user
-      @textbook = Textbook.find(params[:id])      
+      @textbook = Textbook.friendly.find(params[:id])      
       redirect_to root_url unless current_user?(@textbook.user)
     end
 

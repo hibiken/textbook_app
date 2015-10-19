@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:textbooks).find(params[:id])
+    @user = User.includes(:textbooks).friendly.find(params[:id])
     redirect_to root_url and return unless @user.activated?
   end
 
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    User.friendly.find(params[:id]).destroy
     flash[:success] = "User deleted"
     redirect_to users_url
   end
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
 
     # Confirms the correct user.
     def correct_user
-      @user = User.find(params[:id])
+      @user = User.friendly.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
 
