@@ -27,7 +27,9 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                     email: email,
                                     password:              '',
                                     password_confirmation: '' }
-    assert_redirected_to @user
+    assert_response :redirect 
+    follow_redirect!
+    assert_template 'users/show'
     assert_not flash.empty?
     @user.reload
     assert_equal @user.name,  name
