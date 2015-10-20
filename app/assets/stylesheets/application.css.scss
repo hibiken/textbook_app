@@ -33,6 +33,13 @@ $ken-blue: #0074D9;
 $ken-navy: #001f3f;
 $ken-maroon: #85144b;
 
+$twitter: #00aced;
+$facebook: #3b5998;
+$googleplus: #dd4b39;
+$twitter-hover: rgb(0, 200, 255);
+$facebook-hover: rgb(59, 100, 210);
+$googleplus-hover: rgb(255, 75, 57);
+
 $ken-theme: $ken-blue;
 
 $default-border-radius: 10px;
@@ -549,12 +556,29 @@ ul.listings {
     display: inline-block;
     width: 30px;
     height: 30px;
-    background-color: $ken-aqua;
     color: #fff;
-   // border: 2px solid $ken-aqua;
     border-radius: 50%;
     padding: 1em;
     position:relative;
+    transition: all 200ms;
+    &.facebook {
+      background: $facebook;
+      &:hover {
+        background: $facebook-hover;
+      }
+    }
+    &.twitter {
+      background: $twitter;
+      &:hover {
+        background: $twitter-hover;
+      }
+    }
+    &.google-plus {
+      background: $googleplus;
+      &:hover {
+        background: $googleplus-hover;
+      }
+    }
     &:before {
       position: absolute;
       top: 50%;

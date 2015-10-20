@@ -26,9 +26,9 @@
               <%= link_to "Mark as sold", sold_textbook_path(textbook), method: :post, class: 'button-primary btn' unless textbook.sold? %>
             
               <nav class="social_share">
-                <span class="icon-facebook2" onclick="javascript:window.open('http://www.facebook.com/sharer.php?u=<%= url_for([textbook, {only_path: false}]) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0)"></span>
-                <span class="icon-twitter" onclick="javascript:window.open('http://twitter.com/share?text=Anyone needs <%= textbook.title %> textbook?- &amp;url=<%= url_for([textbook, {only_path: false}]) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0)"></span>
-                <span class="icon-google-plus" onclick="javascript:window.open('http://plus.google.com/share?url=<%= url_for([textbook, {only_path: false}]) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0)"></span>
+                <span class="icon-facebook2 facebook" onclick="javascript:window.open('http://www.facebook.com/sharer.php?u=<%= url_for([textbook, {only_path: false}]) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0)"></span>
+                <span class="icon-twitter twitter" onclick="javascript:window.open('http://twitter.com/share?text=Anyone needs <%= textbook.title %> textbook?- &amp;url=<%= url_for([textbook, {only_path: false}]) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0)"></span>
+                <span class="icon-google-plus google-plus" onclick="javascript:window.open('http://plus.google.com/share?url=<%= url_for([textbook, {only_path: false}]) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0)"></span>
               </nav>
             <% end %>
           </div>
