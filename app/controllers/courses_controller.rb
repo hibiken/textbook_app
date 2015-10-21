@@ -1,4 +1,6 @@
 class CoursesController < ApplicationController
+  layout :set_layout
+
   before_action :logged_in_user
 
   def index
@@ -28,5 +30,16 @@ class CoursesController < ApplicationController
     flash[:success] = "Deleted #{course.name} from your wishlist"
     redirect_to wishlist_url
   end
+
+  private
+
+    def set_layout
+      case action_name
+      when 'new'
+        'static_pages'
+      else
+        'application'
+      end
+    end
 
 end

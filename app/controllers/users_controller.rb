@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  layout :set_layout
+
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
@@ -63,6 +65,15 @@ class UsersController < ApplicationController
     # Confirms an admin user.
     def admin_user
       redirect_to(root_url) unless current_user.admin?
+    end
+
+    def set_layout
+      case action_name
+      when 'new', 'edit'
+        'static_pages'
+      else
+        'application'
+      end
     end
 end
 

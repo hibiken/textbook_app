@@ -1,4 +1,6 @@
 class TextbooksController < ApplicationController
+  layout :set_layout
+
   before_action :logged_in_user,  only: [:new, :create, :edit, :update, :destroy, :sold]
   before_action :authorized_user, only: [:edit, :update, :destroy, :sold]
 
@@ -66,6 +68,15 @@ class TextbooksController < ApplicationController
     def authorized_user
       @textbook = Textbook.friendly.find(params[:id])      
       redirect_to root_url unless current_user?(@textbook.user)
+    end
+
+    def set_layout
+      case action_name
+      when 'new', 'edit'
+        'static_pages'
+      else
+        'application'
+      end
     end
 
 end
