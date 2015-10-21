@@ -28,7 +28,7 @@
             <% if current_user.notifications.any? %>
               <ul class="dropdown-menu">
                 <% current_user.notifications.each do |notification| %>
-                  <li><a href="#"><%= notification.message %></a></li>
+                  <li><%= link_to notification.message, notification.path %></li>
                 <% end %>
               </ul>
             <% end %>
