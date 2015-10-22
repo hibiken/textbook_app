@@ -8,8 +8,8 @@
     <div class="textbook-show-seller">
       <%= avatar_for @textbook.user, size: 50 %><strong><%= @textbook.user.name %> listed <%= time_ago_in_words(@textbook.created_at) %> ago</strong>
     </div>
-    <strong>Subject: </strong><%= @textbook.subject_name %><br/>
-    <strong>Course Number: </strong><%= @textbook.course_name %><br/>
+    <strong>Subject: </strong><%= @textbook.subject.name %><br/>
+    <strong>Course Number: </strong><%= @textbook.course.name %><br/>
     
 
     <strong>Description: </strong>

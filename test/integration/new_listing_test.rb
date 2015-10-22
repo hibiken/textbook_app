@@ -11,7 +11,7 @@ class NewListingTest < ActionDispatch::IntegrationTest
   test "successful new listing" do
     get new_textbook_path
     assert_template 'textbooks/new'
-    post textbooks_path, textbook: { title: "Intro to CS", price: 50.00, subject_id: @subject.id, description: "This is great" }
+    post textbooks_path, textbook: { title: "Intro to CS", price: 50.00, subject_id: @subject.id, description: "This is great", course_id: 1 }
     assert_redirected_to @user
     follow_redirect!
     assert_match /Intro to CS/i, response.body
@@ -25,7 +25,7 @@ class NewListingTest < ActionDispatch::IntegrationTest
   test "unsuccessful listing" do
     get new_textbook_path
     assert_template 'textbooks/new'
-    post textbooks_path, textbook: { title: '', price: -30, subject_id: @subject.id }
+    post textbooks_path, textbook: { title: '', price: -30, subject_id: @subject.id, course_id: 1 }
     assert_template 'textbooks/new'
     assert_select 'div#error_explanation'
     get user_path(@user.id)

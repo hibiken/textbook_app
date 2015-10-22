@@ -6,7 +6,7 @@ ruby_on_rails_tutorial:
  description: This is really helpful
  user: ken
  subject: computer_science
- course: CSC221
+ course_id: 1
 
 c_programming:
  title: C programming language
@@ -14,7 +14,7 @@ c_programming:
  description: This is really helpful
  user: ken
  subject: computer_science
- course: CSC221
+ course_id: 2
 
 supply_chain_management:
  title: Supply Chain Management 
@@ -22,7 +22,15 @@ supply_chain_management:
  description: This is really helpful
  user: peizhi
  subject: business
- course: CSC221
+ course_id: 1
+
+intro_to_accounting: 
+ title: Financial Accounting 
+ price: 55.00
+ description: this is a steal
+ user: peizhi
+ subject: business
+ course_id: 3
 
 sold_textbook:
  title: Intro to Microeconomics
@@ -30,5 +38,5 @@ sold_textbook:
  description: Must read if you are Econ major
  user: peizhi
  subject: business
- course: CSC221
+ course_id: 2
  sold: true

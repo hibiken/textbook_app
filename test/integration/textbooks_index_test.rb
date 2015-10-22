@@ -11,7 +11,7 @@ class TextbooksIndexTest < ActionDispatch::IntegrationTest
     get new_textbook_path
     assert_template 'textbooks/new'
     assert_difference 'Textbook.count', 1 do
-      post textbooks_path, textbook: { title: "Microeconomics", price: 120.00, subject_id: 1, description: "This is awesome" }
+      post textbooks_path, textbook: { title: "Microeconomics", price: 120.00, subject_id: 1, description: "This is awesome", course_id: 1 }
     end
     assert_redirected_to user_path(@user.id)
     follow_redirect!

@@ -19,13 +19,4 @@ class Textbook < ActiveRecord::Base
   scope :search, ->(search) { where("title LIKE :search OR description LIKE :search", search: "%#{search}%") }
 
 
-
-  def course_name
-    course.name 
-  end
-
-  def subject_name
-    subject.name
-  end
-
 end

@@ -81,6 +81,9 @@ class TextbooksController < ApplicationController
     end
 
     def notify_users
+      # TODO: check if this is correct way to deal with course_id being nil
+      return false if @textbook.course_id.nil?
+
       course = Course.find(@textbook.course_id)
       course.users.find_each do |user| 
         Notification.create(message: "You have a new seller!", user_id: user.id, path: textbook_path(@textbook))
