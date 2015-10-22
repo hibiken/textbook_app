@@ -20,6 +20,9 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     log_in_as @peizhi
     get user_path(@peizhi)
     assert_select 'span.notification_count', text: '1'
+    # Click in on the bell icon will clear the counter
+    xhr :post, reset_notification_path
+    assert_select 'span.notification_count', count: 0  
   end
 
   test "should notify a user when other user post textbook he/she put in her wishlist" do
@@ -42,5 +45,10 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     log_in_as @ken
     get users_path(@ken)
     assert_select 'span.notification_count', text: '1'
+    # Click in on the bell icon will clear the counter
+    xhr :post, reset_notification_path
+    assert_select 'span.notification_count',count: 0
   end
+
+
 end

@@ -21,8 +21,10 @@ class CommentsController < ApplicationController
     end
 
     def push_notification
-      message = "#{current_user.name} commented on your listing."
-      Notification.create(user_id: @textbook.user.id, message: message, path: textbook_path(@textbook))
+      unless current_user?(@textbook.user)
+        message = "#{current_user.name} commented on your listing."
+        Notification.create(user_id: @textbook.user.id, message: message, path: textbook_path(@textbook))
+      end
     end
 
 

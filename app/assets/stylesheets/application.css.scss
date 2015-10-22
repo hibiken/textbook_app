@@ -290,12 +290,16 @@ form.navbar-form {
   }
 }
 
+.dropdown-toggle.notification {
+  position: relative;
+}
+
 .icon-bell {
   font-size: 1.2em;
 }
 
 .notification_count {
-    position: relative;
+    position: absolute;
     background: tomato;
     border-radius: 50%;
     display: inline-block;
@@ -304,8 +308,8 @@ form.navbar-form {
     font-size: 0.7em;
     padding: 3px;
     line-height: 0.8;
-    bottom: 10px;
-    right: 5px;
+    top: 10px;
+    right: 6px;
 }
 
 /******* footer *******/

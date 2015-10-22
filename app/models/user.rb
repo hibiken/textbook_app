@@ -83,6 +83,11 @@ class User < ActiveRecord::Base
     name.split(' ')[0]
   end
 
+  # Returns the count of unseen notifications.
+  def new_notifications 
+    Notification.where(user_id: id, seen: false).count
+  end
+
   private 
 
     # Converts email to all lower-case.

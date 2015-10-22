@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete  'logout'  => 'sessions#destroy'
   get     'wishlist'=> 'courses#index'
   post    'comment' => 'comments#create'
+  post    'reset_notification' => 'notifications#reset'
 
   resources :users
   resources :account_activations, only: [:edit]
