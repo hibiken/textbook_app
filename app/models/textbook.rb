@@ -4,9 +4,11 @@ class Textbook < ActiveRecord::Base
   belongs_to :course
   has_many :comments, dependent: :destroy
 
+
   validates :title, presence: true, length: { maximum: 70 }
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0, less_than: 1000 } 
   validates :subject_id, presence: true
+  validates :course_id, presence: true
 
   default_scope -> { order(created_at: :desc) }
 
@@ -25,4 +27,5 @@ class Textbook < ActiveRecord::Base
   def subject_name
     subject.name
   end
+
 end

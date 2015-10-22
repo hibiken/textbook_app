@@ -3,6 +3,7 @@ class TextbooksController < ApplicationController
 
   before_action :logged_in_user,  only: [:new, :create, :edit, :update, :destroy, :sold]
   before_action :authorized_user, only: [:edit, :update, :destroy, :sold]
+  after_action  :notify_users,    only: [:create]
 
   def index
     if params[:search]
@@ -76,6 +77,13 @@ class TextbooksController < ApplicationController
         'static_pages'
       else
         'application'
+      end
+    end
+
+    def notify_users
+      course = Course.find(@textbook.course_id)
+      course.users.find_each do |user| 
+        Notification.create(message: "You have a new seller!", user_id: user.id, path: textbook_path(@textbook))
       end
     end
 
