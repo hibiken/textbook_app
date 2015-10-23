@@ -19,4 +19,13 @@ class Textbook < ActiveRecord::Base
   scope :search, ->(search) { where("title LIKE :search OR description LIKE :search", search: "%#{search}%") }
 
 
+  # Returns all users left a comment on this textbook listing.
+  def commenters
+    commenters = []
+    comments.each do |comment|
+      commenters << comment.user unless commenters.include?(comment.user)
+    end
+    commenters
+  end
+
 end

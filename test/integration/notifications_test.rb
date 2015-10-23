@@ -22,7 +22,18 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     assert_select 'span.notification_count', text: '1'
     # Click in on the bell icon will clear the counter
     xhr :post, reset_notification_path
-    assert_select 'span.notification_count', count: 0  
+    assert_select 'span.notification_count', count: 0 
+    # Test notify_commenters after_action callback 
+    get textbook_path(@textbook)
+    assert_template 'textbooks/show'
+    assert_difference 'Notification.count', 1 do
+        post comment_path comment: { textbook_id: @textbook.id, message: "sure!" }
+    end
+    delete logout_path
+
+    log_in_as @ken
+    get user_path(@ken)
+    assert_select 'span.notification_count', text: '1'
   end
 
   test "should notify a user when other user post textbook he/she put in her wishlist" do
