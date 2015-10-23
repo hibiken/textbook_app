@@ -26,10 +26,15 @@
               <% end %>
             <% end %>
             <% if current_user.notifications.any? %>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu notifications">
                 <% current_user.notifications.each do |notification| %>
-                  <li><%= link_to notification.message, notification.path %></li>
+                  <li class="notification">
+                    <%= link_to notification.path do %>
+                      <%= notification.message %><br><small><%= time_ago_in_words(notification.created_at) %> ago</small>
+                    <% end %>
+                  </li>
                 <% end %>
+                <li class="clear_notifications"><%= link_to "Clear Notifications", clear_notification_path, method: :delete %></li>
               </ul>
             <% end %>
           </li>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get     'wishlist'=> 'courses#index'
   post    'comment' => 'comments#create'
   post    'reset_notification' => 'notifications#reset'
+  delete  'clear_notification' => 'notifications#clear'
 
   resources :users
   resources :account_activations, only: [:edit]

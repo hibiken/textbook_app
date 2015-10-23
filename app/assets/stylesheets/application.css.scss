@@ -312,6 +312,19 @@ form.navbar-form {
     right: 6px;
 }
 
+.dropdown-menu.notifications {
+  max-height: 250px;
+  overflow: auto;
+  .notification {
+    border-bottom: 1px solid #efefef;
+  }
+  .clear_notifications a {
+    text-align: center;
+    font-weight: bold;
+    color: $ken-blue;
+  }
+}
+
 /******* footer *******/
 
 footer {

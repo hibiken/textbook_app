@@ -23,13 +23,13 @@ class CommentsController < ApplicationController
 
     def notify_seller
       unless current_user?(@textbook.user)
-        message = "#{current_user.name} commented on your listing."
+        message = "#{current_user.name} commented on your listing for #{@textbook.title}"
         Notification.create(user_id: @textbook.user.id, message: message, path: textbook_path(@textbook))
       end
     end
 
     def notify_commenters
-      message = "#{current_user.name} also commented on the post you commented"
+      message = "#{current_user.name} also left a comment for #{@textbook.title}"
       @textbook.commenters.each do |user|
         if (user != current_user) && (user != @textbook.user) 
           Notification.create(user_id: user.id, message: message, path: textbook_path(@textbook))

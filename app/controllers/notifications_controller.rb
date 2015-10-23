@@ -8,4 +8,9 @@ class NotificationsController < ApplicationController
     end
   end
 
+  def clear
+    Notification.where(user_id: current_user.id).destroy_all
+    redirect_to :back
+  end
+
 end
