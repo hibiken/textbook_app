@@ -1,10 +1,12 @@
 <% provide(:title, @textbook.title) %>
+
+<%= render 'shared/price_tag', object: @textbook %>
 <h1><%= @textbook.title %></h1>
 
 
 <div class="row">
-  <div class="col-md-12">
-    <%= render 'shared/price_tag', object: @textbook %>
+  <div class="col-md-7">
+    
     <div class="textbook-show-seller">
       <%= avatar_for @textbook.user, size: 50 %><strong><%= @textbook.user.name %> listed <%= time_ago_in_words(@textbook.created_at) %> ago</strong>
     </div>
@@ -15,11 +17,12 @@
     <strong>Description: </strong>
     <p><%= @textbook.description %></p>
 
-    <%= image_tag @textbook.image.url, width: 300 if @textbook.image? %>
 
-    <hr/>
+
+    <%= image_tag @textbook.image.url(:thumb) if @textbook.image? %>
+  </div>
     
-
+  <div class="col-md-5">
     <% if @textbook.comments.any? %>
       <div class="comments">
         <% @textbook.comments.each do |comment| %>
