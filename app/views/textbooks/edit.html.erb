@@ -8,7 +8,7 @@
         <h1>Edit Listing</h1>
       </div>
       <div class="panel-body">
-        <%= form_for(@textbook) do |f| %>
+        <%= form_for(@textbook, html: { multipart: true }) do |f| %>
           <%= render 'fields', f: f %>
 
           <%= f.submit "Update Listing", class: 'button-success btn' %>

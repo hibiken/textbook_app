@@ -15,6 +15,8 @@
     <strong>Description: </strong>
     <p><%= @textbook.description %></p>
 
+    <%= image_tag @textbook.image.url, width: 300 if @textbook.image? %>
+
     <hr/>
     
 

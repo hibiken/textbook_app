@@ -21,6 +21,7 @@
 
 # Ignore uploaded pictures
 /public/uploads/user/avatar/*
+public/uploads/textbook/image/*
 
 # Ignore .DS_Store files.
 .DS_Store

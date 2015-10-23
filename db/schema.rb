@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151022131706) do
+ActiveRecord::Schema.define(version: 20151023203037) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "message"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20151022131706) do
     t.integer  "course_id"
     t.boolean  "sold",                                default: false
     t.string   "slug"
+    t.string   "image"
   end
 
   add_index "textbooks", ["course_id"], name: "index_textbooks_on_course_id"
