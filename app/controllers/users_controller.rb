@@ -67,6 +67,7 @@ class UsersController < ApplicationController
       redirect_to(root_url) unless current_user.admin?
     end
 
+    # Sets the layout for users views depending on the action.
     def set_layout
       case action_name
       when 'new', 'edit'
