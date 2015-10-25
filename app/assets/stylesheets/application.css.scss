@@ -149,7 +149,8 @@ $default-border-radius: 10px;
 
 body {
   font-family: 'Lato', sans-serif;
-  padding-top: 60px;
+  padding-top: 80px;
+  overflow-x: hidden;
   &.static-page-layout {
     //background-color: $ken-theme;
     //padding-top: 0;
@@ -364,6 +365,22 @@ footer {
         color: #fff;
       }
     }
+  }
+}
+
+/******* flash message *******/
+
+.alert {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: -15px;
+  border: 2px solid;
+  z-index: 200;
+  min-width: 200px;
+  .close {
+    font-size: 18px;
+    margin-left: 2em;
   }
 }
 
