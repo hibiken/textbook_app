@@ -21,12 +21,17 @@ class CommentsController < ApplicationController
       params.require(:comment).permit(:message, :textbook_id)
     end
 
+
+
+    # TODO: move these to background jobs?
+
     def notify_seller
       unless current_user?(@textbook.user)
         message = "#{current_user.name} commented on your listing for #{@textbook.title}"
         Notification.create(user_id: @textbook.user.id, message: message, path: textbook_path(@textbook))
       end
     end
+
 
     def notify_commenters
       message = "#{current_user.name} also left a comment for #{@textbook.title}"
