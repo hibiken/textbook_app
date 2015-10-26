@@ -8,7 +8,7 @@ class Textbook < ActiveRecord::Base
 
 
   validates :title, presence: true, length: { maximum: 70 }
-  validates :price, presence: true, numericality: { greater_than_or_equal_to: 0, less_than: 1000 } 
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 0.01, less_than: 1000 } 
   validates :subject_id, presence: true
   validates :course_id, presence: true
 
