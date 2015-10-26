@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151023203037) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.text     "message"
     t.integer  "user_id"
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 20151023203037) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "comments", ["textbook_id"], name: "index_comments_on_textbook_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+  add_index "comments", ["textbook_id"], name: "index_comments_on_textbook_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -35,8 +38,8 @@ ActiveRecord::Schema.define(version: 20151023203037) do
     t.integer "course_id"
   end
 
-  add_index "courses_users", ["course_id"], name: "index_courses_users_on_course_id"
-  add_index "courses_users", ["user_id"], name: "index_courses_users_on_user_id"
+  add_index "courses_users", ["course_id"], name: "index_courses_users_on_course_id", using: :btree
+  add_index "courses_users", ["user_id"], name: "index_courses_users_on_user_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -46,10 +49,10 @@ ActiveRecord::Schema.define(version: 20151023203037) do
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"
@@ -60,7 +63,7 @@ ActiveRecord::Schema.define(version: 20151023203037) do
     t.boolean  "seen",       default: false
   end
 
-  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name"
@@ -69,7 +72,7 @@ ActiveRecord::Schema.define(version: 20151023203037) do
     t.string   "slug"
   end
 
-  add_index "subjects", ["slug"], name: "index_subjects_on_slug", unique: true
+  add_index "subjects", ["slug"], name: "index_subjects_on_slug", unique: true, using: :btree
 
   create_table "textbooks", force: :cascade do |t|
     t.string   "title"
@@ -85,10 +88,10 @@ ActiveRecord::Schema.define(version: 20151023203037) do
     t.string   "image"
   end
 
-  add_index "textbooks", ["course_id"], name: "index_textbooks_on_course_id"
-  add_index "textbooks", ["slug"], name: "index_textbooks_on_slug", unique: true
-  add_index "textbooks", ["subject_id"], name: "index_textbooks_on_subject_id"
-  add_index "textbooks", ["user_id"], name: "index_textbooks_on_user_id"
+  add_index "textbooks", ["course_id"], name: "index_textbooks_on_course_id", using: :btree
+  add_index "textbooks", ["slug"], name: "index_textbooks_on_slug", unique: true, using: :btree
+  add_index "textbooks", ["subject_id"], name: "index_textbooks_on_subject_id", using: :btree
+  add_index "textbooks", ["user_id"], name: "index_textbooks_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -107,7 +110,15 @@ ActiveRecord::Schema.define(version: 20151023203037) do
     t.string   "slug"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["slug"], name: "index_users_on_slug", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
+  add_foreign_key "comments", "textbooks"
+  add_foreign_key "comments", "users"
+  add_foreign_key "courses_users", "courses"
+  add_foreign_key "courses_users", "users"
+  add_foreign_key "notifications", "users"
+  add_foreign_key "textbooks", "courses"
+  add_foreign_key "textbooks", "subjects"
+  add_foreign_key "textbooks", "users"
 end

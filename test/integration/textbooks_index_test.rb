@@ -5,13 +5,15 @@ class TextbooksIndexTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:ken)
     log_in_as @user
+    @subject = subjects(:computer_science)
+    @course = courses(:CSC221)
   end
 
   test "successful listing showing in index page" do
     get new_textbook_path
     assert_template 'textbooks/new'
     assert_difference 'Textbook.count', 1 do
-      post textbooks_path, textbook: { title: "Microeconomics", price: 120.00, subject_id: 1, description: "This is awesome", course_id: 1 }
+      post textbooks_path, textbook: { title: "Microeconomics", price: 120.00, subject_id: @subject.id, description: "This is awesome", course_id: @course.id }
     end
     assert_redirected_to user_path(@user.id)
     follow_redirect!

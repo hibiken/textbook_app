@@ -6,6 +6,8 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     @ken    = users(:ken)
     @peizhi = users(:peizhi)
     @textbook = textbooks(:intro_to_accounting) # This textbook belongs to Peizhi
+    @subject = subjects(:computer_science)
+    @course = courses(:CSC221)
   end
 
   test "should notify a user when other users comment on his/her post" do
@@ -41,14 +43,14 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     get wishlist_path
     assert_template 'courses/index'
     get new_course_path
-    post courses_path course_id: 1
+    post courses_path course_id: @course.id
     assert_redirected_to wishlist_url
     delete logout_path
 
     log_in_as @peizhi 
     get new_textbook_path
     assert_difference 'Notification.count' do 
-      post textbooks_path textbook: { title: 'Good essay', price: 30.99, description: 'You need this.', subject_id: 1, course_id: 1 }
+      post textbooks_path textbook: { title: 'Good essay', price: 30.99, description: 'You need this.', subject_id: @subject.id, course_id: @course.id }
     end
     assert_redirected_to @peizhi 
     delete logout_path
