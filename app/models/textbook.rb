@@ -6,6 +6,8 @@ class Textbook < ActiveRecord::Base
 
   mount_uploader :image, TextbookImageUploader
 
+  # will paginate gem. A number of textbooks per page.
+  self.per_page = 3
 
   validates :title, presence: true, length: { maximum: 70 }
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0.01, less_than: 1000 } 

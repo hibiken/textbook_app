@@ -15,7 +15,7 @@
   </aside>
   <div class="col-md-12">
     <ul class="listings">
-      <% @user.textbooks.each do |textbook| %>
+      <% @textbooks.each do |textbook| %>
         <li class="item">
           <div>
             <h3 class="title"><%= link_to textbook.title, textbook %></h3>
@@ -36,5 +36,7 @@
         </li>
       <% end %>
     </ul>
+
+    <%= will_paginate @textbooks %>
   </div>
 </div>

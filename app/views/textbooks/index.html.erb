@@ -12,6 +12,8 @@
           <%= render 'textbook', object: textbook %>
         <% end %>
       </ul>
+
+      <%= will_paginate @textbooks %>
     <% else %>
       <h3>No Textbooks Found</h3>
     <% end %>

@@ -10,7 +10,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:textbooks).friendly.find(params[:id])
+    @user = User.friendly.find(params[:id])
+    @textbooks = @user.textbooks.paginate(page: params[:page])
     redirect_to root_url and return unless @user.activated?
   end
 
