@@ -25,6 +25,7 @@ module TextbookApp
 
 
     # run rake db:structure:load when loading the schema. (instead of schema task)
+    # using structure.sql file instead of schema.rb
     config.active_record.schema_format = :sql
   end
 end

@@ -21,7 +21,7 @@
     </div>
     <div class="col-md-10 container">
       <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, class: "alert alert-#{message_type}", id: 'flash_alert')  do -%>
+        <%= content_tag(:div, class: "alert alert-#{message_type} layout-alert", id: 'flash_alert')  do -%>
           <%= message %> <span class="close" id="flash_close">&times;</span>
         <% end -%>
       <% end %>

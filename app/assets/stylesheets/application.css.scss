@@ -370,18 +370,21 @@ footer {
 
 /******* flash message *******/
 
-.alert {
-  display: inline-block;
-  position: absolute;
-  right: 0;
-  top: -15px;
+.alert {  
   border: 2px solid;
-  z-index: 200;
-  min-width: 200px;
+  z-index: 200; 
   .close {
     font-size: 18px;
     margin-left: 2em;
   }
+}
+
+.layout-alert {
+  position: absolute;
+  right: 0;
+  top: -15px;
+  display: inline-block;
+  min-width: 200px;
 }
 
 

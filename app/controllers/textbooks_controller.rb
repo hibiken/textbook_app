@@ -86,7 +86,7 @@ class TextbooksController < ApplicationController
     # Sets the layout for textbooks views depending on the action.
     def set_layout
       case action_name
-      when 'new', 'edit'
+      when 'new', 'edit', 'create', 'update'
         'static_pages'
       else
         'application'
