@@ -20,6 +20,7 @@ gem 'turbolinks',              '2.3.0'
 gem 'jbuilder',                '2.2.3'
 gem 'friendly_id',             '~> 5.1'
 gem 'pg'
+gem 'pg_search',               '~> 1.0'
 gem 'sdoc',                    '0.4.0', group: :doc
 
 

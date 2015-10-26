@@ -19,8 +19,13 @@ class Textbook < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  # Query all textbook with a given string included in either title or description.
-  scope :search, ->(search) { where("title LIKE :search OR description LIKE :search", search: "%#{search}%") }
+  include PgSearch
+  pg_search_scope :search_by_title_and_description, against: { :title => 'A', :description => 'B' }, 
+                  using: { tsearch: { dictionary: "english"} },
+                  associated_against: { user: :name, course: :name }
+
+  # Replaced by pg_search. leave this for reference to postgres full text search.
+  #scope :search, ->(search) { where("title @@ :search OR description @@ :search", search: search) }
 
 
   # Returns all users left a comment on this textbook listing.
