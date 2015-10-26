@@ -24,6 +24,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700italic,700,300);
 
+$white: #ffffff;
 $gray-medium-light: #eaeaea;
 $ken-teal: #39CCCC;
 $ken-lime: #01FF70;
@@ -516,7 +517,7 @@ input {
   max-width: 700px;
   margin: auto;
   border-radius: 7px;
-  box-shadow: 0 0 5px $ken-navy;
+  box-shadow: 0 0 8px $ken-navy;
   input[name="search"] {
     padding: 10px;
     font-size: 1.5em;
@@ -544,8 +545,33 @@ input {
 h1.homepage-headline {
   font-weight: normal;
   font-size: 56px;
-  color: $ken-navy;
+  color: $white;
+  text-shadow: -5px 5px 5px rgba(0,0,0, 0.5);
+  margin-bottom: 3.5rem;
+  margin-top: 10.5rem;
 }
+
+body.static-page-layout {
+  .main_container {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.container .jumbotron {
+  background-image: url('/assets/desk.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 70%;
+  width: 100vw;
+  height: 80vh;
+  position: relative;
+  bottom: 30px;
+  border-radius: 0;
+}
+
+
 
 
 /******* Users index *******/

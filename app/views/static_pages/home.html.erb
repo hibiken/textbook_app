@@ -1,9 +1,6 @@
 <div class="center jumbotron">
   <h1 class="homepage-headline">Find, buy, and sell textbooks<br/> for next semester</h1>
 
-  <h2>
-    This is the home page for the textbook application for college students to sell and buy textbooks.
-  </h2>
   
     <%= form_tag(textbooks_path, method: :get, id: 'main-searchbar') do %>
       <%= text_field_tag :search, params[:search], placeholder: 'Search Textbooks ...', autofocus: true %>
