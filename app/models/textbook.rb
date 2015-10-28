@@ -24,6 +24,9 @@ class Textbook < ActiveRecord::Base
                   using: { tsearch: { dictionary: "english"} },
                   associated_against: { user: :name, course: :name }
 
+  pg_search_scope :search_by_course_name,
+                  associated_against: { course: :name }
+
   # Replaced by pg_search. leave this for reference to postgres full text search.
   #scope :search, ->(search) { where("title @@ :search OR description @@ :search", search: search) }
 

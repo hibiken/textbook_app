@@ -17,6 +17,7 @@ class TextbooksController < ApplicationController
 
   def show
     @textbook = Textbook.includes(:user, :comments).friendly.find(params[:id])
+    @related  = Textbook.search_by_course_name(@textbook.course.prefix).limit(5)
   end
 
   def new

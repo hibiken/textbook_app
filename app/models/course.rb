@@ -5,4 +5,9 @@ class Course < ActiveRecord::Base
 
 
   validates :name, presence: true
+
+  # Returns the course without the number. CSC223 returns CSC
+  def prefix
+    name[0,3]
+  end
 end

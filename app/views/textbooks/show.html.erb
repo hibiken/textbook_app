@@ -1,48 +1,67 @@
 <% provide(:title, @textbook.title) %>
 
-<%= render 'shared/price_tag', object: @textbook %>
-<h1><%= @textbook.title %></h1>
-
-
 <div class="row">
-  <div class="col-md-7">
-    
-    <div class="textbook-show-seller">
-      <%= avatar_for @textbook.user, size: 50 %><strong><%= @textbook.user.name %> listed <%= time_ago_in_words(@textbook.created_at) %> ago</strong>
-    </div>
-    <strong>Subject: </strong><%= @textbook.subject.name %><br/>
-    <strong>Course Number: </strong><%= @textbook.course.name %><br/>
-    
+  <div class="col-md-9 textbooks-show-main">
 
-    <strong>Description: </strong>
-    <p><%= @textbook.description %></p>
+    <h1><%= @textbook.title %></h1>
+    <div class="textbook-info-wrapper">
 
-
-
-    <%= image_tag @textbook.image.url(:thumb) if @textbook.image? %>
-  </div>
-    
-  <div class="col-md-5">
-    <% if @textbook.comments.any? %>
-      <div class="comments">
-        <% @textbook.comments.each do |comment| %>
-          <%= avatar_for comment.user, size: 35 %> <span><%= comment.user.name %></span> | 
-          <span><%= time_ago_in_words(comment.created_at) %> ago</span>
-          <p><%= comment.message %></p>
-          <hr/>
-        <% end %>
+      <div class="seller-info">
+        <%= avatar_for @textbook.user, size: 120 %>
+        <strong><%= @textbook.user.name %></strong>
       </div>
-    <% end %>
 
+      <div class="item-info">
+        <p><%= @textbook.user.name %> listed <%= time_ago_in_words(@textbook.created_at) %> ago</p>
+        <div class="metadata-wrapper">
+          <%= cover_image_for @textbook %>
+          <div class="metadata">
+            <strong>Subject: </strong><%= @textbook.subject.name %><br/>
+            <strong>Course Number: </strong><%= @textbook.course.name %><br/>
+            <strong>Description: </strong><%= @textbook.description %>
+          </div>
+        </div>
+      </div>
 
-    <% if logged_in? %>
-      <h2>Leave a comment</h2>
-      <%= form_for(:comment, url: comment_path) do |f| %>
-        <%= f.hidden_field :textbook_id, value: @textbook.id %>
-        <%= f.text_area :message %>
-        <%= f.submit "Submit", class: 'button-primary' %>
-      <% end %>
-    <% end %>
+    </div>
+
+    <hr>
     
+
+    <div class="comments-wrapper">
+    
+      <% if @textbook.comments.any? %>
+        <div class="comments">
+          <% @textbook.comments.each do |comment| %>
+            <%= avatar_for comment.user, size: 35 %> <span><%= comment.user.name %></span> | 
+            <span><%= time_ago_in_words(comment.created_at) %> ago</span>
+            <p><%= comment.message %></p>
+            <hr/>
+          <% end %>
+        </div>
+      <% end %>
+
+
+      <% if logged_in? %>
+        <h2>Leave a comment</h2>
+        <%= form_for(:comment, url: comment_path) do |f| %>
+          <%= f.hidden_field :textbook_id, value: @textbook.id %>
+          <%= f.text_area :message %>
+          <%= f.submit "Submit", class: 'button-primary' %>
+        <% end %>
+      <% end %>
+    </div>
+    
+  </div>
+
+  <div class="col-md-3 textbooks-show-sidebar">
+    <% if @related.any? %>
+      <h3>Related</h3>
+      <ul>
+        <% @related.each do |textbook| %>
+          <%= cover_image_for(textbook) %>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </div>

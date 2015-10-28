@@ -26,6 +26,7 @@
 
 $white: #ffffff;
 $gray-medium-light: #eaeaea;
+$ken-background-gray: #efefef;
 $ken-teal: #39CCCC;
 $ken-lime: #01FF70;
 $ken-green: #2ECC40;
@@ -690,6 +691,67 @@ input#user_avatar {
   font-style: italic;
   font-weight: bold;
 }
+
+
+/******* Textbooks show *******/
+
+.textbook-info-wrapper {
+  display: flex;
+  margin-bottom: 3.5em;
+
+  .seller-info, 
+  .item-info {
+    margin: 0.8em;
+  }
+
+  .seller-info {
+    width: 20%;
+    text-align: center;
+    background-color: $ken-background-gray;
+    padding: 0.8em; 
+    .avatar {
+      margin: 0 0 1em 0;
+    }
+  }
+
+  .item-info {
+    width: 80%;
+    margin-left: 0;
+    p {
+      background-color: $ken-background-gray;
+      padding: 0 1em;
+    }
+    .metadata-wrapper {
+      display: flex;
+    }
+    .metadata {
+      background-color: $ken-background-gray;
+      margin-left: 0.8em;
+      padding: 0 0.5em;
+      width: 100%;
+    }
+  }
+}
+
+.comments-wrapper {
+  width: 80%;
+  margin-left: 20%;
+  padding-left: 1.6em;
+  padding-right: 0.8em;
+}
+
+.textbooks-show-sidebar {
+  border-left: 1px solid #efefef;
+}
+
+
+
+
+
+
+
+
+
 
 /******* wishlist *******/
 
