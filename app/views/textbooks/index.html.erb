@@ -1,7 +1,7 @@
 <% provide(:title, "All textbooks") %>
 <h1>Textbooks</h1>
 <% if params[:search] && @textbooks.present? %>
-  <h2 >Search for <span class="search-term"><%= params[:search].titleize %></span> : <%= pluralize(@textbooks.size, 'result') %></h2>
+  <h2 >Search for <span class="search-term"><%= sanitize(params[:search]) %></span> : <%= pluralize(@results_count, 'result') %></h2>
 <% end %>
 
 <div class="row">

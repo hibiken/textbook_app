@@ -17,7 +17,16 @@ class SimpleSearchTest < ActionDispatch::IntegrationTest
     get textbooks_path, search: 'DoNotExist'
     assert_template 'textbooks/index'
     textbooks = assigns(:textbooks)
-    assert_equal textbooks.size, 0
+    assert_equal textbooks.count, 0
     assert_match /no textbooks found/i, response.body
+  end
+
+
+  # TODO: update this test when change the number of textbooks per page.
+  test "should display the total count of the match dispite the pagination" do
+    get textbooks_path, search: 'helpful'
+    textbooks = assigns(:textbooks)
+    assert_equal textbooks.count, 5 
+    assert_match /5 results/i, response.body
   end
 end

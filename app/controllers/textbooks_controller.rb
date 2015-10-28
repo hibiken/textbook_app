@@ -7,7 +7,9 @@ class TextbooksController < ApplicationController
 
   def index
     if params[:search]
-      @textbooks = Textbook.includes(:user).search_by_title_and_description(params[:search]).paginate(page: params[:page])
+      textbooks = Textbook.includes(:user).search_by_title_and_description(params[:search])
+      @results_count = textbooks.count
+      @textbooks = textbooks.paginate(page: params[:page])
     else
       @textbooks = Textbook.includes(:user).where(sold: false).paginate(page: params[:page])
     end

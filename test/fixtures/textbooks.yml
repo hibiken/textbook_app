@@ -27,7 +27,7 @@ supply_chain_management:
 intro_to_accounting: 
  title: Financial Accounting 
  price: 55.00
- description: this is a steal
+ description: this is a steal. really helpful.
  user: peizhi
  subject: business
  course: ACC201
@@ -35,7 +35,7 @@ intro_to_accounting:
 sold_textbook:
  title: Intro to Microeconomics
  price: 100.00
- description: Must read if you are Econ major
+ description: Must read if you are Econ major. Really helpful
  user: peizhi
  subject: business
  course: ACC201
