@@ -252,7 +252,8 @@ ul.navbar-nav {
 
 header.navbar-inverse {
   background-color: $ken-theme;
-  border-color: $ken-theme;
+  border: none;
+  box-shadow: 0 5px 12px #888;
   .navbar-nav > li > a {
     color: #efefef;
   }
@@ -294,6 +295,7 @@ form.navbar-form {
 
 .dropdown-toggle.notification {
   position: relative;
+  padding-bottom: 11px;
 }
 
 .icon-bell {

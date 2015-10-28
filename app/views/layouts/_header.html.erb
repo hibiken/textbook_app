@@ -19,7 +19,7 @@
             <% end %>
           </li>
           <li class="dropdown">
-            <%= link_to reset_notification_path, method: :post, remote: true, class: "dropdonw-toggle notification", data: { toggle: "dropdown"} do %>
+            <%= link_to reset_notification_path, method: :post, remote: true, class: "dropdown-toggle notification", data: { toggle: "dropdown"} do %>
               <span class="icon-bell"></span>
               <% if current_user.new_notifications > 0 %>
                 <span class="notification_count"><%= current_user.new_notifications %></span>
