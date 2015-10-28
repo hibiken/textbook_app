@@ -4,6 +4,7 @@
       <%= avatar_for object.user, size: 40 %>
       <span><%= link_to object.user.name, object.user %></span> | <span><%= time_ago_in_words(object.created_at) %> ago</span>
     </div>
+    <h3 class="course-name"><%= object.course.name %></h3>
     <h3 class="title"><%= link_to object.title, object %></h3>
     <%= render 'shared/price_tag', object: object %>
     <p><%= object.description %></p>

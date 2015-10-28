@@ -610,6 +610,16 @@ ul.listings {
     &:hover {
       background-color: $gray-lighter;
     }
+    .course-name {
+      background-color: $ken-teal;
+      color: #fff;
+      display: inline-block;
+      font-size: 1.5em;
+      padding: 5px 12px 6px;
+      border-radius: 18px;
+      margin-right: 0.7em;
+      margin-top: 0;
+    }
   }
   .title {
     display: inline-block;
