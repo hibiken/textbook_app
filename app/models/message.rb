@@ -4,4 +4,6 @@ class Message < ActiveRecord::Base
 
   validates_presence_of :body, :conversation_id, :user_id
 
+  default_scope -> { order(created_at: :desc) }
+
 end

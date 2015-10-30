@@ -1,31 +1,32 @@
 <h1>Conversation with <%= @receipient.first_name %></h1>
 
 
-<%= form_for [@conversation, Message.new] do |f| %>
+<%= form_for [@conversation, Message.new], html: { id: 'message_form' } do |f| %>
   
   <%= f.hidden_field :user_id, :value => current_user.id %>
 
-  <%= f.label :body %>
-  <%= f.text_area :body %>
+  <%= f.text_area :body, rows: 5, placeholder: 'Add a personal message here' %>
   
-  <%= f.submit 'Send' %>
+  <%= f.submit 'Send', class: 'button-success' %>
 <% end %>
 
 
-<% if @messages.empty? %>
-  <h2>Start a conversation here</h2>
-<% else %>
- <% @messages.each do |msg| %>
-  <% if current_user?(msg.user) %>
-    <div class="message left">
-      <%= avatar_for(msg.user, size: 50) %>
-      <p><%= msg.body %></p>
-    </div>
-  <% else %>
-    <div class="message right">
-      <%= avatar_for(msg.user, size: 50) %>
-      <p><%= msg.body %></p>      
-    </div>
-  <% end %>
- <% end %> 
+<% if @messages.any? %>
+
+  <div class="messages">
+   <% @messages.each do |msg| %>
+    <% if current_user?(msg.user) %>
+      <div class="message left">
+        <%= avatar_for(msg.user, size: 50) %>
+        <p><%= msg.body %></p>
+      </div>
+    <% else %>
+      <div class="message right">
+        <p><%= msg.body %></p> 
+        <%= avatar_for(msg.user, size: 50) %>
+      </div>
+    <% end %>
+   <% end %> 
+  </div>
+  
 <% end %>

@@ -744,8 +744,30 @@ input#user_avatar {
   border-left: 1px solid #efefef;
 }
 
+/******* Messages index *******/
 
+#message_form {
+  max-width: 450px;
+  margin: auto;
+}
 
+.messages {
+  
+  .message {
+    display: flex;
+    &.left {
+      justify-content: flex-start;
+    }
+    &.right {
+      justify-content: flex-end;
+    }
+    p {
+      background-color: #ffffea;
+      padding: 1em;
+      max-width: 40%;
+    }
+  }
+}
 
 
 
