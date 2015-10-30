@@ -1,0 +1,8 @@
+<h1>Conversations</h1>
+
+  <% @conversations.each do |conversation| %>
+    <li>
+      <%= avatar_for conversation.user_other_from(current_user), size: 60 %>
+      <%= link_to conversation.user_other_from(current_user).name, conversation_messages_path(conversation) %>
+    </li>
+  <% end %>

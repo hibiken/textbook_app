@@ -12,6 +12,14 @@
               <span><%= current_user.first_name %></span><%= avatar_for(current_user, size: 35) %>
             <% end %>
           </li>
+          <li>
+            <%= link_to conversations_path do %>
+              <span class="icon-mail3"></span>
+              <% if current_user.unread_messages_count > 0 %>
+                <span class="notification_count"><%= current_user.unread_messages_count %></span>
+              <% end %>
+            <% end %>
+          </li>
           <li class="dropdown">
             <%= link_to reset_notification_path, method: :post, remote: true, class: "dropdown-toggle notification", data: { toggle: "dropdown"} do %>
               <span class="icon-bell"></span>

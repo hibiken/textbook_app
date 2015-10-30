@@ -5,6 +5,13 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :courses
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :active_conversations, class_name: 'Conversation',
+                                  foreign_key: 'buyer_id',
+                                  dependent: :destroy
+
+  has_many :passive_conversations, class_name: 'Conversation',
+                                   foreign_key: 'seller_id',
+                                   dependent: :destroy
 
   before_save   :downcase_email
   before_create :create_activation_digest
@@ -76,6 +83,26 @@ class User < ActiveRecord::Base
   # Returns true if a password reset has expired.
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  # Return array of all conversation (both active and passive)
+  def conversations
+    active_conversations + passive_conversations
+  end
+
+  # Returns the number of unread messages
+  def unread_messages_count
+    return 0 if conversations.empty?
+    total = 0
+    conversations.each do |conversation|
+      conversation.messages.each do |message|
+        if message.user_id != self.id && !message.read?
+          total += 1
+          break
+        end
+      end
+    end
+    total
   end
 
   # Returns the first string before a space in name.

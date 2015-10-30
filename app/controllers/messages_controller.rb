@@ -1,7 +1,9 @@
 class MessagesController < ApplicationController
+  before_action :logged_in_user
   before_action :set_conversation
 
   def index
+    @conversation.mark_as_read_for!(current_user)
     @messages = @conversation.messages
     if current_user?(@conversation.buyer)
       @receipient = @conversation.seller

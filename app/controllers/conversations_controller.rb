@@ -1,4 +1,10 @@
 class ConversationsController < ApplicationController
+  before_action :logged_in_user
+
+  def index
+    @conversations = current_user.conversations
+  end
+
   def show
   end
 
