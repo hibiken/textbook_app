@@ -32,6 +32,14 @@ intro_to_accounting:
  subject: business
  course: ACC201
 
+intro_to_marketing: 
+ title: Principle of Marketing 
+ price: 55.00
+ description: this is a good read
+ user: aaron
+ subject: business
+ course: ACC201
+
 sold_textbook:
  title: Intro to Microeconomics
  price: 100.00

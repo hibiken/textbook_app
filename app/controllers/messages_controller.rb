@@ -15,7 +15,8 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to conversation_messages_path(@conversation)
     else
-      redirect_to :back
+      flash[:danger] = "Something went wrong. Please try again."
+      redirect_to conversation_messages_path(@conversation)
     end
   end
 
