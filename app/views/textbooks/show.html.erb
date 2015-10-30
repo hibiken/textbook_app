@@ -9,6 +9,9 @@
       <div class="seller-info">
         <%= avatar_for @textbook.user, size: 120 %>
         <strong><%= @textbook.user.name %></strong>
+        <% if logged_in? && !current_user?(@textbook.user) %>
+          <%= button_to 'Message Seller', conversations_path(buyer_id: current_user.id, seller_id: @textbook.user.id), method: :post %>
+        <% end %>
       </div>
 
       <div class="item-info">

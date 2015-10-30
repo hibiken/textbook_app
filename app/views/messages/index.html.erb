@@ -1,0 +1,31 @@
+<h1>Conversation with <%= @receipient.first_name %></h1>
+
+
+<%= form_for [@conversation, Message.new] do |f| %>
+  
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  
+  <%= f.submit 'Send' %>
+<% end %>
+
+
+<% if @messages.empty? %>
+  <h2>Start a conversation here</h2>
+<% else %>
+ <% @messages.each do |msg| %>
+  <% if current_user?(msg.user) %>
+    <div class="message left">
+      <%= avatar_for(msg.user, size: 50) %>
+      <p><%= msg.body %></p>
+    </div>
+  <% else %>
+    <div class="message right">
+      <%= avatar_for(msg.user, size: 50) %>
+      <p><%= msg.body %></p>      
+    </div>
+  <% end %>
+ <% end %> 
+<% end %>

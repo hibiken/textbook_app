@@ -6,6 +6,9 @@
       <h1>
         <%= avatar_for @user %>
         <%= @user.name %>
+        <% if logged_in? && !current_user?(@user) %>
+          <%= button_to 'Message Seller', conversations_path(buyer_id: current_user.id, seller_id: @user.id), method: :post %>
+        <% end %>
       </h1>
       <% if current_user?(@user) %>
         <%= link_to "Edit Profile", edit_user_path(current_user), class: 'button-primary button-top-right btn' %>
