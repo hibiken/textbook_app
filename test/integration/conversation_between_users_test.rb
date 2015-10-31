@@ -30,7 +30,20 @@ class ConversationBetweeenUsersTest < ActionDispatch::IntegrationTest
       post conversation_messages_path, message: { body: 'Can I buy your textbook?', user_id: @ken.id }   
     end
     conversation = assigns(:conversation)
-    assert_redirected_to conversation_messages_path(conversation)   
+    assert_redirected_to conversation_messages_path(conversation)  
+
+    delete logout_path
+
+    log_in_as @aaron
+    get textbooks_path
+    assert_template 'textbooks/index' 
+    assert_select 'span.unread_messages_count', text: '1'
+    get conversations_path 
+    assert_template 'conversations/index'
+    assert_match @ken.name, response.body
+    get conversation_messages_path(conversation)
+    assert_template 'messages/index'
+    assert_select 'span.unread_messages_count', count: 0 
   end
 
   test "should not display 'message seller' button in current user's textbook show page" do
