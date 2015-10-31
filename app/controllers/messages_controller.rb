@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
   def create
     @message = @conversation.messages.build(message_params)
     if @message.save
+      @conversation.update(updated_at: Time.zone.now)
       redirect_to conversation_messages_path(@conversation)
     else
       flash[:danger] = "Something went wrong. Please try again."

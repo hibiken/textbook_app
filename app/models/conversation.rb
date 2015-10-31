@@ -24,4 +24,19 @@ class Conversation < ActiveRecord::Base
       message.update(read: true) if message.user_id != user.id
     end
   end
+
+  # Returns true if a given user has not read the messages, returns false otherwise.
+  def unread?(user)
+    messages.each do |message|
+      if message.user_id != user.id && !message.read?
+        return true
+      end
+    end
+    false
+  end
+
+  # Returns last message.
+  def last_message
+    messages.first
+  end
 end

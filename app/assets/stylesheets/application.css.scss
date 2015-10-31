@@ -755,6 +755,22 @@ input#user_avatar {
   border-left: 1px solid #efefef;
 }
 
+/******* Conversations index *******/
+
+.conversations {
+  width: 80%;
+  max-width: 700px;
+  margin: auto;
+  .conversation {
+    padding: 1em;
+    margin-bottom: 1em;
+    background-color: #efefef;
+    &.unread {
+      border: 2px solid $ken-teal;
+    }
+  }
+}
+
 /******* Messages index *******/
 
 #message_form {
