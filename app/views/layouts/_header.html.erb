@@ -22,15 +22,15 @@
             <%= link_to conversations_path do %>
               <span class="icon-mail3"></span>
               <% if current_user.unread_messages_count > 0 %>
-                <span class="notification_count"><%= current_user.unread_messages_count %></span>
+                <span class="unread_messages_count"><%= current_user.unread_messages_count %></span>
               <% end %>
             <% end %>
           </li>
           <li class="dropdown">
             <%= link_to reset_notification_path, method: :post, remote: true, class: "dropdown-toggle notification", data: { toggle: "dropdown"} do %>
               <span class="icon-bell"></span>
-              <% if current_user.new_notifications > 0 %>
-                <span class="notification_count"><%= current_user.new_notifications %></span>
+              <% if current_user.new_notifications_count > 0 %>
+                <span class="notification_count"><%= current_user.new_notifications_count %></span>
               <% end %>
             <% end %>
             <% if current_user.notifications.any? %>

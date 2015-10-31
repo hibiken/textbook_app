@@ -313,7 +313,8 @@ form.navbar-form {
   font-size: 1.2em;
 }
 
-.notification_count {
+.notification_count,
+.unread_messages_count {
     position: absolute;
     background: tomato;
     border-radius: 50%;

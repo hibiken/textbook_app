@@ -111,7 +111,7 @@ class User < ActiveRecord::Base
   end
 
   # Returns the count of unseen notifications.
-  def new_notifications 
+  def new_notifications_count 
     Notification.where(user_id: id, seen: false).count
   end
 
