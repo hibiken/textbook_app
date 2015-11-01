@@ -34,20 +34,15 @@
     <div class="comments-wrapper">
     
       <% if @textbook.comments.any? %>
-        <div class="comments">
-          <% @textbook.comments.each do |comment| %>
-            <%= avatar_for comment.user, size: 35 %> <span><%= comment.user.name %></span> | 
-            <span><%= time_ago_in_words(comment.created_at) %> ago</span>
-            <p><%= comment.message %></p>
-            <hr/>
-          <% end %>
+        <div class="comments" id="comments">
+          <%= render @textbook.comments %>
         </div>
       <% end %>
 
 
       <% if logged_in? %>
         <h2>Leave a comment</h2>
-        <%= form_for(:comment, url: comment_path) do |f| %>
+        <%= form_for(:comment, url: comment_path, remote: true) do |f| %>
           <%= f.hidden_field :textbook_id, value: @textbook.id %>
           <%= f.text_area :message %>
           <%= f.submit "Submit", class: 'button-primary' %>

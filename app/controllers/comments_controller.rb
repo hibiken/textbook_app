@@ -6,11 +6,14 @@ class CommentsController < ApplicationController
   def create
     @textbook = Textbook.find(params[:comment][:textbook_id])
     @comment = current_user.comments.build(comment_params)
-    if @comment.save
-      redirect_to @textbook 
-    else
-      flash[:danger] = "Something went wrong when posting your comment. Please try again."
-      render 'textbooks/show'
+
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to @textbook }
+        format.js
+      else
+        format.html { render 'textbooks/show' }
+      end
     end
   end
 
