@@ -102,7 +102,8 @@ CREATE TABLE courses (
     id integer NOT NULL,
     name character varying,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    subject_id integer
 );
 
 
@@ -522,6 +523,13 @@ CREATE INDEX index_conversations_on_seller_id ON conversations USING btree (sell
 
 
 --
+-- Name: index_courses_on_subject_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_courses_on_subject_id ON courses USING btree (subject_id);
+
+
+--
 -- Name: index_courses_users_on_course_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -679,6 +687,14 @@ ALTER TABLE ONLY courses_users
 
 
 --
+-- Name: fk_rails_57d52eb461; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY courses
+    ADD CONSTRAINT fk_rails_57d52eb461 FOREIGN KEY (subject_id) REFERENCES subjects(id);
+
+
+--
 -- Name: fk_rails_7c9fcd6d1f; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -795,4 +811,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151026212156');
 INSERT INTO schema_migrations (version) VALUES ('20151029234920');
 
 INSERT INTO schema_migrations (version) VALUES ('20151029235318');
+
+INSERT INTO schema_migrations (version) VALUES ('20151103125411');
 

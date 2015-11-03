@@ -3,25 +3,7 @@
 #
 
 
-User.create!(name:   "Michael Hartl",
-            email:  "example@railstutorial.org",
-            password:               "foobar",
-            password_confirmation:  "foobar",
-            admin: true,
-            activated: true,
-            activated_at: Time.zone.now)
 
-40.times do |n|
-  name = Faker::Name.name
-  email = "example-#{n}@railstutorial.org"
-  password = 'password'
-  User.create!(name:  name,
-               email: email,
-               password:              password,
-               password_confirmation: password,
-               activated: true,
-               activated_at: Time.zone.now)  
-end
 
 
 # Create Subjects
@@ -38,7 +20,24 @@ courses = ['ACC 201', 'ACC 202', 'ACC 301', 'ACC 302', 'BIO 101', 'BIO 102', 'BI
            'MAT 221', 'MAT 222', 'MAT 225', 'ENG 101']
 
 courses.each do |course|
-  Course.create!(name: course)
+  case course[0,3]
+  when 'ACC'
+    subject_id = Subject.where(name: 'Accounting').first.id
+  when 'BIO'
+    subject_id = Subject.where(name: 'Biology').first.id
+  when 'CSC'
+    subject_id = Subject.where(name: 'Computer Science').first.id
+  when 'FIN'
+    subject_id = Subject.where(name: 'Finance').first.id
+  when 'MAT'
+    subject_id = Subject.where(name: 'Math').first.id
+  when 'ENG'
+    subject_id = Subject.where(name: 'English').first.id
+  else
+    raise
+  end
+
+  Course.create!(name: course, subject_id: subject_id)
 end
 
 

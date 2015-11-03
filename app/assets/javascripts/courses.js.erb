@@ -1,0 +1,19 @@
+
+
+$(document).on('ready page:load', function() {
+  var courses, course, filterParam, options, course_selectbox;
+
+  course_selectbox = $('#textbook_course_id');
+
+  courses = course_selectbox.html();
+  
+  $('#textbook_subject_id').change(function() {
+    course = $('#textbook_subject_id :selected').text();
+    filterParam = "optgroup[label='" + course + "']";
+    options = $(courses).filter(filterParam).html();
+    if (options.length !== 0) {
+      course_selectbox.html(options);
+    }
+  
+  });
+});
