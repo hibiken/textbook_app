@@ -27,6 +27,8 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }, allow_blank: true
   validate :picture_size
 
+  scope :activated, -> { where(activated: true) }
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 
