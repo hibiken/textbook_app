@@ -19,14 +19,24 @@
   <div class="col-md-12">
     <ul class="listings">
       <% @textbooks.each do |textbook| %>
-        <li class="item">
+        <li class="item" id="users_show_item">
           <div>
             <h3 class="title"><%= link_to textbook.title, textbook %></h3>
+            <% if current_user?(@user) %>
+              <div class="action_icons">
+              <% unless textbook.sold? %>
+                <%= link_to edit_textbook_path(textbook) do %>
+                  <span class="icon-edit2"></span>
+                <% end %>
+              <% end %>
+              <%= link_to textbook_path(textbook), method: :delete, data: { confirm: "Are you sure you want to delete this?" } do %>
+                <span class="icon-bin"></span>
+              <% end %>
+              </div>
+            <% end %>
             <%= render 'shared/price_tag', object: textbook %>
             <p><%= textbook.description %></p>
             <% if current_user?(@user) %>
-              <%= link_to "Edit", edit_textbook_path(textbook), class: 'button-primary btn edit-button' unless textbook.sold? %>
-              <%= link_to "Take this off", textbook_path(textbook), method: :delete, class: 'button-primary btn delete-button' %>
               <%= link_to "Mark as sold", sold_textbook_path(textbook), method: :post, class: 'button-primary btn' unless textbook.sold? %>
             
               <nav class="social_share">
