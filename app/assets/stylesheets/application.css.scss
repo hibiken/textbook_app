@@ -633,8 +633,14 @@ ul.listings {
     padding: 20px;
     border-radius: 5px;
     position: relative;
+    .action_icons {
+      display: none;
+    }
     &:hover {
       background-color: $gray-lighter;
+      .action_icons {
+        display: inline;
+      }
     }
     .course-name {
       background-color: $ken-teal;
@@ -664,7 +670,6 @@ ul.listings {
 }
 
 .action_icons {
-  display: inline;
   margin-left: 0.5em;
   a {
     font-size: 1.2em;
